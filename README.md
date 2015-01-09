@@ -17,20 +17,32 @@ After completing this assignment, you should...
 
 After completing this assignment, you should...
 
-* Understand the concept of factory objects
-* Know how to build a UI that runs on Rails
+* Understand relational and normalized database concepts
+* Understand how Rails models and associations map to database concepts
+* Know how to build back-end code to enable a rich user interface
 
 ### Performance Objectives
 
 After completing this assignment, you should be able to effectively...
 
+* Design a data structure to handle a complex set of workflows
 * Work on a project with multiple developers
 * Resolve merge conflicts in git
+* Model and query relational databases with ActiveRecord and AREL
+* Build different views of the same data for different types of users
+* Restrict access to parts of an application based on identity
 
 ## Details
 
 ### Deliverables
 
+* **A Data Structure Diagram.** Before writing any code, review the requirements below and draw a data structure diagram for this project.  It should include:
+  * A box for each table
+  * Each field you'll need for each table inside its box
+  * A data type for each field
+  * A mark to indicate that it's a required field
+  * A different mark to indicate that the field has an index on it
+  * Relationships between each pair of tables with a primary/foreign key pair
 * **A github organization.** Create an organization in github to represent your team for this project.  Give all team members full rights.
 * **A Repository.** Create a new repository under your github organization's account.
 * **A README.** Your README should describe the application and include a link to the live version on Heroku.
