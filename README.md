@@ -47,7 +47,6 @@ After completing this assignment, you should be able to effectively...
 * **A Repository.** Create a new repository under your github organization's account.
 * **A README.** Your README should describe the application and include a link to the live version on Heroku.
 * **A Working App.** See the requirements below!
-* **A Test Suite.** Not only must this test suite be conceptually complete, it must be written before the code that satisfies it.  This can be determined by git commits (so commit often!!!)
 
 ### Requirements
 
@@ -86,7 +85,7 @@ Survey Creation
     * This displays as a textbox
   * Long answer
     * This displays as an auto-expanding textarea
-  * Multiple choice
+  * Single choice (from multiple options)
     * The set of possible options should be editable in the survey designer
     * The author must select at least two possible choices
     * This displays as either a set of radio buttons or a select field (dropdown)
@@ -95,35 +94,25 @@ Survey Creation
     * (e.g. a move up / move down button on each question)
 * Publishing a survey works as follows:
   * The survey must have at least one question to be published
-  * For any survey, you can invite one or more people to take the survey
-  * To do this, you enter their email address (or addresses)
-  * This sends an invitation email to those email addresses
-  * Only people who have been invited to take a survey should be allowed to take it
+  * When published, user is presented a link that they can send to people to take the survey.
 
 Notifications
 
-* If a taker has been invited to take a survey,
-  * She can follow the link in her email which will take her directly to the survey
-  * She should see a notification icon in the website header
-    * The notification icon shows the number of surveys she's been invited to take but hasn't completed
-    * Clicking the notification icon should show a dropdown of the surveys she's been invited to take
-    * Clicking a survey in the dropdown should take her to the survey
-    * Once a survey has been completed, it should no longer show up in her notifications
+* If a taker has given a link to a survey,
+  * She can follow the link which will take her directly to the survey
+  * She can complete the survey in her browser.
 
 Taking a Survey
 
-* Only people who have been invited to take a survey can see that survey
 * Takers cannot change their answers once they have submitted a survey
-* Takers cannot take the same survey twice
+* Takers can take the survey as many times as they want
 * Takers cannot submit a survey until the required fields have been filled in
 * Authors cannot edit a survey after it has been taken by anyone
 
 Viewing Results
 
-* Takers can view their answers for any survey they've taken
 * Authors can view all of the answers for any survey they have created
-  * This displays a question, followed by all of the answers
-  * Each answer should show the user (name or email) who supplied the answer
+  * This displays a question, followed by all of the answers for that question
 
 
 ## Hard Mode
