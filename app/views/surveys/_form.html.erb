@@ -22,10 +22,10 @@
   <div class="field">
     <%= f.hidden_field :id, :value => session[:author_id] %>
   </div>
-  <% f.fields_for :questions do |builder| %>
+  <%= f.fields_for :questions do |ff| %>
   <p>
-    <%= builder.label :question_text, "Question" %><br />
-    <%= builder.text_area :question_text, :rows => 3 %>
+    <%= ff.label :question_text, "Question" %><br>
+    <%= ff.text_area :question_text %>
   </p>
   <% end %>
   <div class="actions">

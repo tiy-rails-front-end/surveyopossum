@@ -10,12 +10,13 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   # GET /surveys/1.json
   def show
+    @surveys = Survey.all
   end
 
   # GET /surveys/new
   def new
     @survey = Survey.new
-    3.times { @survey.questions.build }
+    @survey.questions.build
   end
 
   # GET /surveys/1/edit
