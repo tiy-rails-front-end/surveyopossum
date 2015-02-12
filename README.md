@@ -10,7 +10,7 @@ SurveyMonkey has started charging $4 billion per survey (not really, but go with
 
 After completing this assignment, you should...
 
-* Understand the concept of factory objects
+* (Maybe) understand the concept of factory objects
 * Know how to build a UI that runs on Rails
 
 ### Learning Objectives (Rails)
