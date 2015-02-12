@@ -23,7 +23,13 @@
     <%= f.label :author_id %><br>
     <%= f.number_field :author_id %>
   </div>
+  <% f.fields_for :questions do |builder| %>
+  <p>
+    <%= builder.label :question_text, "Question" %><br />
+    <%= builder.text_area :question_text, :rows => 3 %>
+  </p>
+  <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>
