@@ -1,6 +1,10 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:edit, :update, :destroy, :show]
   def new
+    @submission=Submission.new
+    if params[:survey_id]
+      @submission.survey_id = params[:survey_id]
+    end
   end
 
   def edit
@@ -16,7 +20,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def index
