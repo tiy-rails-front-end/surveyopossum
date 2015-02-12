@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :submissions
+
   resources :authors
 
   resources :surveys

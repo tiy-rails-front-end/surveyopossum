@@ -23,6 +23,7 @@
     <%= f.hidden_field :author_id, :value => session[:author_id] %>
   </div>
   <%= f.fields_for :questions do |ff| %>
+  
   <%= ff.label :question_type, "Question Type" %><br>
   <%= ff.select :question_type, options_for_select(["Multiple Choice", "Long Form", "Short Form", "Yes/No"]), :include_blank=> true%>
   <p>
