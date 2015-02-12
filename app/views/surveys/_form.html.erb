@@ -20,7 +20,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.hidden_field :id, :value => session[:author_id] %>
+    <%= f.hidden_field :author_id, :value => session[:author_id] %>
   </div>
   <div class="actions">
     <%= f.submit %>
