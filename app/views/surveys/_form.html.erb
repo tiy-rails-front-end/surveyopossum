@@ -20,15 +20,17 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.hidden_field :id, :value => session[:author_id] %>
+    <%= f.hidden_field :author_id, :value => session[:author_id] %>
   </div>
+
   <%= f.fields_for :questions do |ff| %>
   <p>
     <%= ff.label :question_text, "Question" %><br>
     <%= ff.text_area :question_text %>
   </p>
   <% end %>
+
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit %>
   </div>
 <% end %>
