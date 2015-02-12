@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h>Surveys</h>
 
 <p>
   <strong>Title:</strong>
@@ -10,11 +10,16 @@
   <%= @survey.description %>
 </p>
 
+
 <p>
-  <strong>Author:</strong>
-  <%= @survey.author_id %>
+  <strong>Questions:</strong>
+  <% @survey.questions.each do |question| %>
+    <li><%= question.question_text %></li>
+  <% end %>
 </p>
 
-
-<%= link_to 'Edit', edit_survey_path(@survey) %> ||
-<%= link_to 'Back', surveys_path %>
+<p>
+  <%= link_to "Edit", edit_survey_path(@survey) %> |
+  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", surveys_path %>
+</p>
