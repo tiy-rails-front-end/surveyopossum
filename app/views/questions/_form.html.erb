@@ -1,5 +1,5 @@
 <%= form_for(@question) do |f| %>
-<%= if @question.question_type== "Short Form" %>
+<%= if @question.question_type == "Short Form" %>
 <p>
   <%= ff.label :question_text, "Question" %><br>
   <%= ff.text_area :question_text %>
