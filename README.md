@@ -41,7 +41,6 @@ After completing this assignment, you should be able to effectively...
   * Each field you'll need for each table inside its box
   * A data type for each field
   * A mark to indicate that it's a required field
-  * A different mark to indicate that the field has an index on it
   * Relationships between each pair of tables with a primary/foreign key pair
 * **A github organization.** Create an organization in github to represent your team for this project.  Give all team members full rights.
 * **A Repository.** Create a new repository under your github organization's account.
