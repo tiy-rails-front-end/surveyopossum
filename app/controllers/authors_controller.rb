@@ -15,6 +15,7 @@ class AuthorsController < ApplicationController
 
   def index
     @authors= Author.all
+    redirect_to surveys_path
   end
 
   def create
