@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   resources :authors
 
-  resources :surveys
+  resources :surveys do
+    member do
+      get 'answers'
+    end
+  end
 
   resources :answers
   resources :sessions do

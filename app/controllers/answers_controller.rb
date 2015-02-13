@@ -1,6 +1,5 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:edit, :update, :destroy]
-  #before_action :authenticate_user, except: [:new, :create]
 
   def new
     @answer = Answer.new
@@ -21,6 +20,8 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     if @answer.save
       submission=Submission.new
+      survey_id=Question.find(@answer.question_id).survey.id
+      submission.survey_id= survey_id
       submission.save
       @answer.submission_id= submission.id
       @answer.save
@@ -47,7 +48,7 @@ class AnswersController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_answer
-    @answer = Answer.find_by(survey_id: session[:survey_id])
+    @answer = Answer.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
