@@ -11,6 +11,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1.json
   def show
     @surveys = Survey.all
+    @answer = Answer.new
   end
 
   # GET /surveys/new

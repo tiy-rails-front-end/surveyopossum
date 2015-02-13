@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :surveys
 
+  resources :answers
   resources :sessions do
     collection do
       get 'logout'
