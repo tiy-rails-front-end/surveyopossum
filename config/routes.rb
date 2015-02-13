@@ -4,8 +4,13 @@ Rails.application.routes.draw do
 
   resources :authors
 
-  resources :surveys
+  resources :surveys do
+    member do
+      get 'answers'
+    end
+  end
 
+  resources :answers
   resources :sessions do
     collection do
       get 'logout'
@@ -16,7 +21,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'surveys#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,2 +1,10 @@
-<h1>Submissions#index</h1>
-<p>Find me in app/views/submissions/index.html.erb</p>
+<h1>Submissions</h1>
+<% count=1  %>
+<% @submissions.each do |submission| %>
+  <h2> Submission <%= count %> </h2>
+  <% submission.answers.each do |answer| %>
+    Question: <%= answer.question.question_text %> <br>
+    Answer: <%= answer.answer_text %>
+  <% end %>
+  <% count +=1 %>
+<% end %>

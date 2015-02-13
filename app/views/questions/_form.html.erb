@@ -1,9 +1,13 @@
-<%= form_for(@question) do |f| %>
-<%= if @question.question_type == "Short Form" %>
-<p>
-  <%= ff.label :question_text, "Question" %><br>
-  <%= ff.text_area :question_text %>
-  <%= ff.check_box :_destroy %>
-  <%= ff.label :_destroy, "Remove Question" %>
-</p>
-<% end %>
+
+  <div class= "Short Form"
+    <%= render 'questions/short_form', :ff=> ff %>
+  </div>
+  <div class= "Long Form"
+  <%= render 'questions/long_form', :ff=> ff %>
+  </div>
+  <div class= "Multiple Choice"
+  <%= render 'questions/multiple_choice', :ff=> ff %>
+  </div>
+  <div class= "Yes or No"
+  <%= render 'questions/yes_no', :ff=> ff %>
+  </div>

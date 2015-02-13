@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
-  #before_action :authenticate_user, except: [:new, :create]
+  before_action :authenticate_user
 
   def new
     @question = Question.new
@@ -44,7 +44,7 @@ class QuestionsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_question
-    @question = Question.find_by(survey_id: session[:survey_id])
+    @question = Question.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

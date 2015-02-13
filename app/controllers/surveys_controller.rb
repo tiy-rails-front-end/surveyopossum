@@ -1,5 +1,7 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, except: [:show]
+
 
   # GET /surveys
   # GET /surveys.json
@@ -11,6 +13,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1.json
   def show
     @surveys = Survey.all
+    @answer = Answer.new
   end
 
   # GET /surveys/new
@@ -21,6 +24,10 @@ class SurveysController < ApplicationController
 
   # GET /surveys/1/edit
   def edit
+    @survey.questions.build
+    if @survey.questions.count > 0
+      redirect_to surveys_path, notice: 'You can not edit the survey once responses have been received'
+    end
   end
 
   # POST /surveys
@@ -52,7 +59,9 @@ class SurveysController < ApplicationController
       end
     end
   end
+  def answers
 
+  end
   # DELETE /surveys/1
   # DELETE /surveys/1.json
   def destroy
@@ -71,7 +80,7 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params.require(:survey).permit(:title, :description, :author_id,
-      questions_attributes: [:id, :question_text, :question_type])
+      params.require(:survey).permit(:title, :description, :author_id, :survey_id,
+      questions_attributes: [:id, :question_text, :question_type, :_destroy])
     end
 end

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       return true
     else
       flash[:notice] = "You must log in to see that page"
-      redirect_to(:controller => 'session', :action => 'new')
+      redirect_to(:controller => 'sessions', :action => 'new')
       return false
     end
   end
