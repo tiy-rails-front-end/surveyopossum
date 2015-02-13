@@ -6,18 +6,18 @@
   </div>
 
   <div class= "Long Form">
-  <%= render 'answers/long_form', :f=> f %>
+    <%= render 'answers/long_form', :f=> f %>
   </div>
 
   <div class= "Multiple Choice">
-  <%= render 'answers/multiple_choice', :f=> f %>
+    <%= render 'answers/multiple_choice', {:f=> f, :question => question} %>
   </div>
 
   <div class= "Yes or No">
-  <%= render 'answers/yes_no', :f=> f %>
+    <%= render 'answers/yes_no', :f=> f %>
   </div>
 
-  <%= f.hidden_field :question_id, :value=> question_id%>
+  <%= f.hidden_field :question_id, :value=> question.id%>
 
 
   <div class="actions">

@@ -13,7 +13,7 @@
   <strong>Questions:</strong>
   <% @survey.questions.each do |question| %>
     <li><%= question.question_text %></li>
-    <%= render "answers/form", question_id: question.id %>
+    <%= render "answers/form", question: question %>
   <% end %>
 </p>
 
