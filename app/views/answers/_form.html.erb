@@ -1,0 +1,27 @@
+<%= form_for(@answer) do |f| %>
+
+<div class="field">
+  <div class= "Short Form">
+    <%= render 'answers/short_form', :f=> f %>
+  </div>
+
+  <div class= "Long Form">
+  <%= render 'answers/long_form', :f=> f %>
+  </div>
+
+  <div class= "Multiple Choice">
+  <%= render 'answers/multiple_choice', :f=> f %>
+  </div>
+
+  <div class= "Yes or No">
+  <%= render 'answers/yes_no', :f=> f %>
+  </div>
+
+  <%= f.hidden_field :question_id, :value=> question_id%>
+
+
+  <div class="actions">
+  <%= f.submit %>
+  </div>
+</div>
+<% end %>
