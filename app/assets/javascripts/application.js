@@ -30,13 +30,12 @@ $(function() {
   var typeSelector = $('.type-select');
 
   typeSelector.change(function(e) {
-    alert('pre-hi');
-    if ($(this).val() === 'Multiple Choice') {
-      alert('hi!');
+    var current = $(this);
+    if (current.val() === 'Multiple Choice') {
       var mcOption = $('.root').clone();
       mcOption.removeClass('root');
-      mcOption.toggle()
-      $(e.target).closest($('.question-p')).append(mcOption);
+      $(current).closest($('.question-p')).append(mcOption);
+      mcOption.toggle();
     }
   })
 
