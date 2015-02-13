@@ -23,15 +23,10 @@
     <%= f.hidden_field :author_id, :value => session[:author_id] %>
   </div>
   <%= f.fields_for :questions do |ff| %>
-  
+
   <%= ff.label :question_type, "Question Type" %><br>
   <%= ff.select :question_type, options_for_select(["Multiple Choice", "Long Form", "Short Form", "Yes/No"]), :include_blank=> true%>
-  <p>
-    <%= ff.label :question_text, "Question" %><br>
-    <%= ff.text_area :question_text %>
-    <%= ff.check_box :_destroy %>
-    <%= ff.label :_destroy, "Remove Question" %>
-  </p>
+  <%= render "questions/form", :ff => ff %>
   <% end %>
 
   <div class="actions">
