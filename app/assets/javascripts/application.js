@@ -12,5 +12,32 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+$(function() {
+
+  var addButton = $('.add-question-button');
+
+  addButton.on('click', function(e) {
+    e.preventDefault();
+    var newQuestion = $('.blueprint').clone(true);
+    newQuestion.removeClass('blueprint');
+    newQuestion.insertBefore('.actions');
+    newQuestion.toggle();
+    addButton.insertBefore('.actions');
+  })
+
+  var typeSelector = $('.type-select');
+
+  typeSelector.change(function(e) {
+    alert('pre-hi');
+    if ($(this).val() === 'Multiple Choice') {
+      alert('hi!');
+      var mcOption = $('.root').clone();
+      mcOption.removeClass('root');
+      mcOption.toggle()
+      $(e.target).closest($('.question-p')).append(mcOption);
+    }
+  })
+
+});

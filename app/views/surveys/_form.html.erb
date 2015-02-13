@@ -12,41 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "survey title"%>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, placeholder: "describe your survey" %>
   </div>
   <div class="field">
     <%= f.hidden_field :author_id, :value => session[:author_id] %>
   </div>
-  <%= f.fields_for :questions do |ff| %>
-  <%= ff.label :question_type, "Question Type" %><br>
-  <%= ff.select :question_type, options_for_select(["Multiple Choice", "Long Form", "Short Form", "Yes/No"]), :include_blank=> true%>
-    <%= if :question_type == "Mutiple Choice" do |ff| %>
-      <%=ff.fields_for :options do |fff| %>
-      <%= fff.label :option1 %>
-      <%= fff.text_field :name %><br>
-      <%= fff.label :option2 %>
-      <%= fff.text_field :name %><br>
-      <%= fff.label :option3 %>
-      <%= fff.text_field :name %><br>
-      <%= fff.label :option4 %>
-      <%= fff.text_field :name %><br>
-    <% else %>
-    <p>
+
+  <button class="add-question-button">Add Question</button>
+
+  <div class="question-container blueprint" hidden>
+
+    <button class="delete-question">X delete</button>
+
+    <%= f.fields_for :questions do |ff| %>
+    <%= ff.select :question_type, ["Question Type", "Multiple Choice",
+       "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
+
+    <p class="question-p">
       <%= ff.label :question_text, "question" %><br>
       <%= ff.text_area :question_text %>
-      <%= ff.check_box :_destroy %>
-      <%= ff.label :_destroy, "Remove question" %>
     </p>
 
-    <% end %>
+    <div class="mc-option root" hidden>
+      <%= fields_for :options do |fff| %>
+      <%= fff.text_field :name %><br>
+      <% end %>
+    </div>
+
+  </div>
+
   <% end %>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
