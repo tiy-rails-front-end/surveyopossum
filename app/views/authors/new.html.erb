@@ -1,2 +1,24 @@
-<h1>Sign Up</h1>
-<%= render 'form' %>
+
+<div class="heading-container">
+  <h1 class="heading-text">SurveyPossum Form Builder</h1>
+</div>
+
+<div class="main-content-container">
+
+  <div class="tab-container login-container selected">
+
+    <div class="tab login-tab"></div>
+
+    <%= render :template => 'sessions/new' %>
+
+    <div class="tab-container signup-container">
+
+      <div class="tab signup-tab"></div>
+
+      <%= render 'form' %>
+
+    </div>
+
+  </div>
+
+</div>
