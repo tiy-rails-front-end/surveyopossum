@@ -1,0 +1,19 @@
+// Place all the styles related to the authors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  border: 1px dashed black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.input-field {
+  display: block;
+}
+
+.filler-actual {
+  height: 125px;
+  width: 400px;
+  background: grey;
+}

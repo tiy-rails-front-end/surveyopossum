@@ -20,21 +20,13 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.questions.build
-<<<<<<< HEAD
-    # @survey.questions.each do |q|
-    #   if q.question_type == "Multiple Choice"
-    #     q.options.build
-    #   end
-    # end
-=======
-    @survey.options.build
->>>>>>> dac8c87e161b56481d4a1bdfa5c999798240dd50
+    @survey.questions.first.options.build
   end
 
   # GET /surveys/1/edit
   def edit
     @survey.questions.build
-    if @survey.questions.count > 0
+    if @survey.submissions.count > 0
       redirect_to surveys_path, notice: 'You can not edit the survey once responses have been received'
     end
   end

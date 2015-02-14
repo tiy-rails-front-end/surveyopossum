@@ -4,8 +4,6 @@ class Survey < ActiveRecord::Base
   belongs_to :author
   has_many :submissions
   has_many :options, through: :questions
-  accepts_nested_attributes_for :questions
-
   validates :title, presence: true
   validates :description, presence: true
   accepts_nested_attributes_for :questions,
