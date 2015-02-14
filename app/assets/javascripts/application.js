@@ -35,8 +35,36 @@ $(function() {
       var mcOption = $('.root').clone();
       mcOption.removeClass('root');
       $(current).closest($('.question-p')).append(mcOption);
-      mcOption.toggle();
+      mcOption.keyup(grow);
     }
   })
+
+  var deleteButton = $('.delete-question');
+
+  deleteButton.click(function(e) {
+    var current = $(this);
+    current.closest($('.question-container')).remove();
+  })
+
+  function grow() {
+    var item = $(this);
+
+    if (item.val() !== '' && item.next().val() === undefined) {
+      var newInput = item.clone();
+      newInput.keyup(grow);
+      newInput.insertAfter(item);
+      newInput.val('');
+    }
+
+    if (item.val() === '' && item.next().val() === '') {
+      item.next().remove();
+    }
+
+    item.on('blur', function() {
+      if (item.val() === '' && item.next().val() !== undefined) {
+        item.remove();
+      }
+    })
+  }
 
 });
