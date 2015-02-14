@@ -3,6 +3,7 @@ class Survey < ActiveRecord::Base
   has_many :submissions
   belongs_to :author
   has_many :submissions
+  has_many :options, through: :questions
   accepts_nested_attributes_for :questions
 
   validates :title, presence: true
@@ -10,8 +11,6 @@ class Survey < ActiveRecord::Base
   accepts_nested_attributes_for :questions,
     :allow_destroy => true,
     :reject_if     => :all_blank
-  accepts_nested_attributes_for :questions,
-  :allow_destroy => true,
-  :reject_if     => :all_blank
+
 
 end

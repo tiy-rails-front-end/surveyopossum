@@ -1,8 +1,9 @@
-<%= count = 1 %>
-<%= question.options.each do |o| %>
+<% count = 1 %>
+<% question.options.each do |o| %>
+  <% o_name= o.name %>
   <%= f.label "Choice #{count}" %><br>
-  <%= f.text_area :o %>
+  <%= f.check_box :o_name %>
   <%= f.check_box :_destroy %>
   <%= f.label :_destroy, "Remove answer" %>
-  <%= count += 1 %>
+  <% count += 1 %>
 <% end %>

@@ -20,11 +20,15 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.questions.build
+<<<<<<< HEAD
     # @survey.questions.each do |q|
     #   if q.question_type == "Multiple Choice"
     #     q.options.build
     #   end
     # end
+=======
+    @survey.options.build
+>>>>>>> dac8c87e161b56481d4a1bdfa5c999798240dd50
   end
 
   # GET /surveys/1/edit
@@ -86,6 +90,6 @@ class SurveysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id, :survey_id,
-      questions_attributes: [:id, :question_text, :question_type, :_destroy])
+      questions_attributes: [:id, :question_text, :question_type, :_destroy, options_attributes: [:id, :name]])
     end
 end
