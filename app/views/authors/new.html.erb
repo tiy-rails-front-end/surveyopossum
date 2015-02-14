@@ -1,24 +1,30 @@
-
 <div class="heading-container">
+  <span class="possum-logo">
+    <%= image_tag 'possum-logo-khaki.jpg', width: '100' %>
+  </span>
   <h1 class="heading-text">SurveyPossum Form Builder</h1>
 </div>
 
 <div class="main-content-container">
 
-  <div class="tab-container login-container selected">
+  <div class="login-inputs">
 
-    <div class="tab login-tab"></div>
+    <div class="tab-container login-container selected block">
 
-    <%= render :template => 'sessions/new' %>
 
-    <div class="tab-container signup-container">
+      <%= render :template => 'sessions/new' %>
 
-      <div class="tab signup-tab"></div>
+    </div>
+
+    <div></div>
+
+    <div class="tab-container signup-container block">
 
       <%= render 'form' %>
 
     </div>
 
   </div>
+  <div class="footer"></div>
 
 </div>

@@ -20,15 +20,8 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.questions.build
-<<<<<<< HEAD
-    # @survey.questions.each do |q|
-    #   if q.question_type == "Multiple Choice"
-    #     q.options.build
-    #   end
-    # end
-=======
     @survey.options.build
->>>>>>> dac8c87e161b56481d4a1bdfa5c999798240dd50
+
   end
 
   # GET /surveys/1/edit
