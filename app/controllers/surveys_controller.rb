@@ -26,7 +26,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1/edit
   def edit
     @survey.questions.build
-    if @survey.questions.count > 0
+    if @survey.submissions.count > 0
       redirect_to surveys_path, notice: 'You can not edit the survey once responses have been received'
     end
   end
