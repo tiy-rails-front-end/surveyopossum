@@ -20,7 +20,7 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.questions.build
-    @survey.options.build
+    @survey.questions.first.options.build
   end
 
   # GET /surveys/1/edit
