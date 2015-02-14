@@ -38,6 +38,9 @@ $(function() {
       var mcOption = $('.root').clone(); // cloning root multi-choice answer field
       mcOption.removeClass('root'); // removing root class
       $(current).closest($('.question-p')).append(mcOption); // adding answer field to question
+      var questionIndex = current.attr('name').match(/\d+/);
+      var optionName = mcOption.attr('name').replace(/\d+/, questionIndex);
+      mcOption.attr('name', optionName);
       mcOption.keyup(grow); // seeding the dynamic growth property
     } else if (current.next().length && current.val() !== 'Multiple Choice') {
       current.nextAll().remove();
@@ -58,21 +61,20 @@ $(function() {
 
     if (item.val() !== '' && item.next().val() === undefined) { // checks to make sure there is input && that there isnt already a next sibling
       var newInput = item.clone(true); // deep clones current input
-      // newInput.keyup(grow);
       newInput.insertAfter(item); // inserts clone behind this input
       newInput.val(''); // removes copied val of clone daddy
-      updateOptionIndeces(item.closest('.question-container'));
+      updateOptionIndeces(item.closest('.question-p'));
     }
 
     if (item.val() === '' && item.next().val() === '') { // checks if current && next input are empty
       item.next().remove(); // if so, it removes the next input
-      updateOptionIndeces(item.closest('.question-container'));
+      updateOptionIndeces(item.closest('.question-p'));
     }
 
     item.on('blur', function() {
       if (item.val() === '' && item.next().val() !== undefined) { // if blurred input is empty and not the last in the list
         item.remove(); // then remove it
-        updateOptionIndeces(item.closest('.question-container'));
+        updateOptionIndeces(item.closest('.question-p'));
       }
     })
   }
@@ -81,8 +83,9 @@ $(function() {
     var optionArr = $('.mc-option', parent).toArray();
 
     for (var i = 0; i < optionArr.length; ++i) {
-      var current = optionArr[i];
-      adjustAttrIndex($(current), 'name', i);
+      var current = $(optionArr[i]);
+      var newName = current.attr('name').replace(/\d+(?=\]\[name)/, i);
+      current.attr('name', newName);
     }
 
   }
