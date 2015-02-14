@@ -36,12 +36,12 @@
          "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
     </p>
 
-    <div class="mc-option root" hidden>
-      <%= fields_for :options do |fff| %>
-      <%= fff.text_field :name %>
-      <% end %>
-    </div>
+  </div>
 
+  <div hidden>
+    <%= fields_for :options do |fff| %>
+    <%= fff.text_field :name, class: "mc-option root" %>
+    <% end %>
   </div>
 
   <% end %>
