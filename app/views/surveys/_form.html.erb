@@ -30,10 +30,9 @@
     <%= f.fields_for :questions do |ff| %>
 
     <p class="question-p">
-      <%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal"%>
+      <%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal", required: "required"%>
       <%= ff.select :question_type, ["Question Type", "Multiple Choice",
          "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
-      <%= ff.check_box :is_required %> Question required?
     </p>
 
   </li>
