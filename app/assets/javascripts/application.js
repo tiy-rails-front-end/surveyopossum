@@ -67,15 +67,18 @@ $(function() {
       // newInput.keyup(grow);
       newInput.insertAfter(item); // inserts clone behind this input
       newInput.val(''); // removes copied val of clone daddy
+      updateOptionIndeces(item.closest('.question-container'));
     }
 
     if (item.val() === '' && item.next().val() === '') { // checks if current && next input are empty
       item.next().remove(); // if so, it removes the next input
+      updateOptionIndeces(item.closest('.question-container'));
     }
 
     item.on('blur', function() {
       if (item.val() === '' && item.next().val() !== undefined) { // if blurred input is empty and not the last in the list
         item.remove(); // then remove it
+        updateOptionIndeces(item.closest('.question-container'));
       }
     })
   }
@@ -92,10 +95,20 @@ $(function() {
     }
   }
 
+  function updateOptionIndeces(parent) {
+    var optionArr = $('.mc-option', parent).toArray();
+
+    for (var i = 0; i < optionArr.length; ++i) {
+      var current = optionArr[i];
+      adjustAttrIndex(current, 'name', i);
+    }
+
+  }
+
   //finds and replaces a number within an specified attribute within a specified jquery node object
   function adjustAttrIndex(targetNode, attribute, index) {
-    var currentAttr = targetNode.attr(attribute); // identifies attribute with which we are concerned
-    targetNode.attr(attribute, currentAttr.replace( /\d+/g, index)); // changes it using super sweet regex
+    var currentAttr = $(targetNode).attr(attribute); // identifies attribute with which we are concerned
+    $(targetNode).attr(attribute, currentAttr.replace( /\d+/g, index)); // changes it using super sweet regex
   }
 
   function reposition(e) {
