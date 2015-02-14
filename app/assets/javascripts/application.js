@@ -95,10 +95,15 @@ $(function() {
     var questArr = $('.actual').toArray(); // creates an array of all actual question containers
 
     for (var i = 0; i < questArr.length; ++i) { //for each actual question container...
-
       adjustAttrIndex($('.question-literal', questArr[i]), 'name', i) // change its question name
       adjustAttrIndex($('.type-select', questArr[i]), 'name', i) // change its select name
 
+      var optionArr = $('.mc-option', $(questArr[i])).toArray();
+
+      for (var x = 0; x < optionArr.length; ++x) {
+        var oldName = $(optionArr[x]).attr('name');
+        $(optionArr[x]).attr('name', oldName.replace(/\d+/, i));
+      }
     }
   }
 
