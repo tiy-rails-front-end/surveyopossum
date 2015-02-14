@@ -21,11 +21,11 @@
     <%= f.hidden_field :author_id, :value => session[:author_id] %>
   </div>
 
-  <button class="add-question-button">Add Question</button>
-
-  <div class="question-container blueprint" hidden>
+  <li class="question-container blueprint" hidden>
 
     <button class="delete-question">X delete</button>
+
+    <button class="reorder-question">/\\/</button>
 
     <%= f.fields_for :questions do |ff| %>
 
@@ -35,7 +35,11 @@
          "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
     </p>
 
-  </div>
+  </li>
+
+  <ul class="question-list"></ul>
+
+  <button class="add-question-button">Add Question</button>
 
   <div hidden>
     <%= ff.fields_for :options do |fff| %>
