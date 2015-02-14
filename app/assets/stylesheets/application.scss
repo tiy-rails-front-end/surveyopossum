@@ -1,0 +1,308 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+@import "bourbon";
+@import "neat";
+/*------------------------------------*\
+#COLORS
+\*------------------------------------*/
+
+$white: #ffffff;
+
+$grey-white: #e9e9eb;
+
+$grey:  #605F64;
+
+$sea-foam: #98d6cd;
+
+$sea-foam-shadow: #43a092;
+
+$dark-grey: #333640;
+
+$rust: #ad483c;
+
+$rust-shadow: #84372e;
+
+$blue: #194996;
+
+$sky-blue: #3c9dd9;
+
+$sky-blue-shadow: #25698e;
+
+$khaki: #e8d8ae;
+
+$almost-black: #1b191e;
+
+
+/*------------------------------------*\
+#TYPE
+\*------------------------------------*/
+
+$display: 'Mouse Memoirs', sans-serif;
+
+$body: 'Source Sans', sans-serif;
+
+$bold: bolder;
+
+$light: lighter;
+
+$italic: italic;
+
+
+
+
+/*------------------------------------*\
+#HEADING (HEADER)
+\*------------------------------------*/
+
+.heading-container {
+  @include fill-parent();
+  @include pad(default);
+  @include row(table);
+  margin: 0;
+  background-color: $khaki;
+  position: fixed;
+
+}
+
+.heading-text {
+  font-family: $display;
+  font-weight: $bold;
+  color: $almost-black;
+}
+
+
+
+/*------------------------------------*\
+#CONTAINERS
+\*------------------------------------*/
+
+body {
+  @include outer-container();
+  margin: 0;
+  padding: 0;
+  background-color: $khaki;
+
+}
+
+
+.main-content-container {
+  @include span-columns(8);
+  @include shift(2);
+  background-color: $blue;
+  margin: 10px;
+  padding: 10px;
+  top: 100px;
+
+}
+
+.login-tab {
+  background-color: $sea-foam;
+}
+
+.tab {
+  margin: 10px;
+  border-radius: .5em;
+}
+.login-container {
+  border-radius: .5em;
+  background-color: $sea-foam;
+
+
+}
+
+.signup-tab {
+
+  background-color: $rust;
+
+}
+
+.signup-container {
+  border-radius: 0 0 1em;
+  background-color: $rust;
+
+}
+/*------------------------------------*\
+#BUTTONS
+\*------------------------------------*/
+
+/*
+/*stolen from : http://cssdeck.com/labs/beautiful-flat-buttons
+==================================================*/
+.submit-button {
+  position: relative;
+  vertical-align: top;
+  width: 15%;
+  height: 30px;
+  padding: 0;
+  font-size: 22px;
+  color: $dark-grey;
+  text-align: center;
+  font-family: $display;
+  letter-spacing: .5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: $sea-foam;
+  border: 0;
+  border-bottom: 2px solid $sea-foam-shadow;
+  border-radius: .25em;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px $sea-foam-shadow;
+  box-shadow: inset 0 -2px $sea-foam-shadow;
+}
+.submit-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.login-button {
+  position: relative;
+  vertical-align: top;
+  width: 15%;
+  height: 30px;
+  padding: 0;
+  font-size: 22px;
+  color: $grey-white;
+  text-align: center;
+  font-family: $display;
+  letter-spacing: .5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: $sky-blue;
+  border: 0;
+  border-bottom: 2px solid $sky-blue-shadow;
+  border-radius: 25em;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px $sky-blue-shadow;
+  box-shadow: inset 0 -2px $sky-blue-shadow;
+}
+.login-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+/*------------------------------------*\
+#CHECKBOXES
+\*------------------------------------*/
+
+.flatCheckbox
+{
+  width: 120px;
+  height: 50px;
+  margin: 20px 30px;
+  position: relative;
+}
+.flatCheckbox div
+{
+  background: #2fca6c;
+  position: relative;
+  top:-30px;
+}
+.flatCheckbox label
+{
+  display: block;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  z-index: 1;
+  left: 8px;
+  background: #fffffd;
+}
+.flatCheckbox label:before
+{
+  color: #ccc;
+  content:'|||';
+  font-size: 15px;
+  letter-spacing: 1px;
+  position: absolute;
+  left: 7px;
+  top:11px;
+}
+.flatCheckbox input[type=checkbox]:checked ~ div
+{
+  background: #e9513a;
+}
+
+.flatCheckbox input[type=checkbox]:checked ~ label {
+  left: 75px;
+}
+
+/*------------------------------------*\
+#INPUT BOXES
+\*------------------------------------*/
+.input-field {
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px $dark-grey;
+  font-family: $body;
+  color: $grey;
+  transition: border 0.3s;
+}
+.input-field:focus,
+.input-field.focus {
+  border-bottom: solid 2px $dark-grey;
+}
+
+
+/*------------------------------------*\
+#RADIOS
+\*------------------------------------*/
+
+div {
+  margin:0 0 0.75em 0;
+}
+
+input[type="radio"] {
+  display:none;
+}
+input[type="radio"] + label {
+  color: $dark-grey;
+  font-family:Arial, sans-serif;
+  font-size:14px;
+}
+input[type="radio"] + label span {
+  display:inline-block;
+  width:19px;
+  height:19px;
+  margin:-1px 4px 0 0;
+  vertical-align:middle;
+  cursor:pointer;
+  -moz-border-radius:  50%;
+  border-radius:  50%;
+}
+
+input[type="radio"] + label span {
+  background-color:$dark-grey;
+}
+
+input[type="radio"]:checked + label span{
+  background-color: $khaki;
+}
+
+input[type="radio"] + label span,
+input[type="radio"]:checked + label span {
+  -webkit-transition:background-color 0.4s linear;
+  -o-transition:background-color 0.4s linear;
+  -moz-transition:background-color 0.4s linear;
+  transition:background-color 0.4s linear;
+}
