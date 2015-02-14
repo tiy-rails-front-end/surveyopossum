@@ -18,6 +18,8 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    survey=Question.find(@answer.question_id).survey
+    survey_id=Question.find(@answer.question_id).survey.id
     if @answer.save
       submission=Submission.new
       survey_id=Question.find(@answer.question_id).survey.id
@@ -27,7 +29,7 @@ class AnswersController < ApplicationController
       @answer.save
       redirect_to answers_path, notice: 'Answer was successfully created.'
     else
-      render :new
+      redirect_to :back, notice: 'You must answer required questions'
     end
   end
 
@@ -53,7 +55,7 @@ class AnswersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def answer_params
-    params.require(:answer).permit(:answer_text, :question_id, :submission_id)
+    params.require(:answer).permit(:answer_text, :question_id, :submission_id, :survey_id)
   end
 
 end

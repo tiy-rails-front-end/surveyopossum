@@ -26,6 +26,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1/edit
   def edit
     @survey.questions.build
+    @survey.questions.first.options.build
     if @survey.submissions.count > 0
       redirect_to surveys_path, notice: 'You can not edit the survey once responses have been received'
     end
@@ -38,7 +39,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
-        format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
+        format.html { redirect_to surveys_path, notice: 'Survey was successfully created.' }
         format.json { render :show, status: :created, location: @survey }
       else
         format.html { render :new }
@@ -82,6 +83,7 @@ class SurveysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id, :survey_id,
-      questions_attributes: [:id, :question_text, :question_type, :_destroy, options_attributes: [:id, :name]])
+      questions_attributes: [:id, :question_text, :question_type, :is_required, :_destroy,
+        options_attributes: [:id, :name]])
     end
 end

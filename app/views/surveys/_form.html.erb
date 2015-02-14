@@ -33,6 +33,7 @@
       <%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal"%>
       <%= ff.select :question_type, ["Question Type", "Multiple Choice",
          "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
+      <%= ff.check_box :is_required %> Question required?
     </p>
 
   </li>

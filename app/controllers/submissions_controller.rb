@@ -1,5 +1,4 @@
 class SubmissionsController < ApplicationController
-
   before_action :set_submission, only: [:update, :show]
 
   def new

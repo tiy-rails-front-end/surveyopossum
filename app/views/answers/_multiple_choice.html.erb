@@ -2,6 +2,6 @@
 <% question.options.each do |o| %>
   <%= f.label "Choice #{count}" %><br>
   <%= o.name %>
-  <%= f.check_box :answer_text %>
+  <%= f.check_box :answer_text, required: "#{"required" if @answer.errors}" %>
   <% count += 1 %>
 <% end %>
