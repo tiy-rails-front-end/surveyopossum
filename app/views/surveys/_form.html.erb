@@ -30,8 +30,7 @@
     <%= f.fields_for :questions do |ff| %>
 
     <p class="question-p">
-      <%= ff.label :question_text, "question" %><br>
-      <%= ff.text_area :question_text %>
+      <%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal"%>
       <%= ff.select :question_type, ["Question Type", "Multiple Choice",
          "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
     </p>
