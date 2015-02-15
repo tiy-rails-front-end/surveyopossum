@@ -17,13 +17,14 @@
 $(function() {
 
   var addButton = $('.add-question-button');
+  $('.question-container').first().addClass('blueprint');
 
   addButton.click(function(e) {
     e.preventDefault(); // prevent form submission
     var newQuestion = $('.blueprint').clone(true); // creates deep clone of question template
     newQuestion.removeClass('blueprint'); // removes blueprint class from clone to maintain integrity of blueprint
     newQuestion.addClass('actual'); // adds actual class to clone to identify it as an actual question
-    newQuestion.appendTo('.question-list'); // inserts new question node before the submit button, aka last thing in form
+    newQuestion.insertAfter($('.actual').last()); // inserts new question node before the submit button, aka last thing in form
     repairQuestionIndeces(); // rewrites indeces for all actual questions
     // addButton.insertBefore('.actions'); // moves the add button to the appropriate position
 
@@ -33,16 +34,18 @@ $(function() {
 
   typeSelector.change(function(e) {
     var current = $(this); // identifying the correct type-select and storing it to var current
-    if (!current.next().length && current.val() === 'Multiple Choice') { // checking the value of the selected option against 'Multiple Choice'
-      var mcOption = $('.root').clone(); // cloning root multi-choice answer field
-      mcOption.removeClass('root'); // removing root class
-      $(current).closest($('.question-p')).append(mcOption); // adding answer field to question
+    var mcOption = $('.mc-option', current.next());
+
+    if (current.next().is(':hidden') && current.val() === 'Multiple Choice') { // checking the value of the selected option against 'Multiple Choice'
+      current.next().toggle();
       var questionIndex = current.attr('name').match(/\d+/);
       var optionName = mcOption.attr('name').replace(/\d+/, questionIndex);
       mcOption.attr('name', optionName);
-      mcOption.keyup(grow); // seeding the dynamic growth property
-    } else if (current.next().length && current.val() !== 'Multiple Choice') {
-      current.nextAll().remove();
+      mcOption.keyup(grow);
+    } else if (current.next().is(':visible') && current.val() !== 'Multiple Choice') {
+      mcOption.nextAll().remove();
+      mcOption.val('');
+      current.next().toggle();
     }
   })
 
@@ -89,13 +92,12 @@ $(function() {
 
   }
 
-  // rewrites all question indeces in the current form, brute force FTW
   function repairQuestionIndeces() {
-    var questArr = $('.actual').toArray(); // creates an array of all actual question containers
+    var questArr = $('.actual').toArray();
 
-    for (var i = 0; i < questArr.length; ++i) { //for each actual question container...
-      adjustAttrIndex($('.question-literal', questArr[i]), 'name', i) // change its question name
-      adjustAttrIndex($('.type-select', questArr[i]), 'name', i) // change its select name
+    for (var i = 0; i < questArr.length; ++i) {
+      adjustAttrIndex($('.question-literal', questArr[i]), 'name', i)
+      adjustAttrIndex($('.type-select', questArr[i]), 'name', i)
 
       var optionArr = $('.mc-option', $(questArr[i])).toArray();
 
@@ -106,10 +108,13 @@ $(function() {
     }
   }
 
-  //finds and replaces a number within an specified attribute within a specified jquery node object
   function adjustAttrIndex(targetNode, attribute, index) {
-    var currentAttr = targetNode.attr(attribute); // identifies attribute with which we are concerned
-    targetNode.attr(attribute, currentAttr.replace( /\d+/g, index)); // changes it using super sweet regex
+    var currentAttr = targetNode.attr(attribute);
+    targetNode.attr(attribute, currentAttr.replace( /\d+/g, index));
   }
+
+  $('form').submit(function() {
+    $('*').is(':hidden').toggle();
+  })
 
 });

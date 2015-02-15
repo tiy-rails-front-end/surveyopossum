@@ -84,6 +84,7 @@ p {
   letter-spacing: 1px;
   background-color: $sea-foam;
   position: fixed;
+<<<<<<< HEAD
   padding-top: 1em;
   padding-bottom: 1em;
   // border: 1px dashed black;
@@ -107,6 +108,7 @@ p {
   -webkit-box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
   -moz-box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
   box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+
 }
 .heading-text {
   @include span-columns(10);

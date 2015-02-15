@@ -6,3 +6,17 @@
 <%= link_to 'Back', surveys_path %>
 <%= button_to "Delete", {:controller => :surveys,
   :action => 'destroy', :id => (params[:id]) }, :method => :delete %>
+
+<script>
+  var selectArr = $('.type-select').toArray();
+
+  selectArr.forEach(function (item) {
+    if ($(item).val() === 'Multiple Choice') {
+      $(item).next().toggle();
+    }
+  })
+</script>
+
+<script type="text/html" class="filler" hidden>
+  <div class="filler-actual"></div>
+</script>

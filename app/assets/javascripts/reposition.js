@@ -46,16 +46,16 @@ $(function() {
     }
 
     function shouldMoveUp(y) {
-      var offset = $('.filler-actual').prev().offset();
+      var offset = $('.filler-actual').prev('.actual').offset();
 
-      return offset && offset.top + 3 > y;
+      return offset && offset.top > y;
     }
 
     function shouldMoveDown(y) {
-      var next = $('.filler-actual').next();
+      var next = $('.filler-actual').next('.actual');
       var offset = next.offset();
 
-      return offset && offset.top - 3 < y;
+      return offset && offset.top < y;
     }
     // e in this function is the mouse movement, pageY/X are the coordinates
     function reorder(e) {
