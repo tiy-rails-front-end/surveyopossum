@@ -161,9 +161,9 @@ p {
 
 .login-container {
   border-radius: 3em;
-  @include span-columns(5);
+  @include span-columns(4.8);
   padding: 2em 1em 2em 1.25em;
-  @include shift(.5);
+  @include shift(.25);
   margin-bottom: 1em;
   background-color: $khaki;
   -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
@@ -175,8 +175,7 @@ p {
 }
 .signup-container {
   padding: 2em 1em;
-
-  @include span-columns(6);
+  @include span-columns(6.8);
   border-radius: 0.25em;
   background-color: $rust;
   border-top: 1.5px $grey-white solid;
@@ -267,19 +266,20 @@ a {
   text-decoration: none;
   color: $blue;
 }
+a:hover {
+  text-decoration: none;
+  color: $almost-black;
+}
 /*------------------------------------*\
 #INDEX PAGE
 \*------------------------------------*/
 
 .logout-button {
-  position: relative;
-  top: 50px;
+  margin-top: 3em;
   float: left;
   @include pad(.5em);
-  @include shift(-1.1);
   padding-left: 1em;
   padding-right: 1em;
-  margin: .25em;
   font-family: $display;
   font-size: 24pt;
   background-color: $rust;
@@ -310,12 +310,11 @@ a {
 }
 
 .create-new-button {
-  position: relative;
-  top: 50px;
+  margin-top: 3em;
   color: $grey-white;
-  margin: .25em;
   margin-right: 1.5em;
-  @include shift(-.1);
+  margin-left: 0;
+  @include shift(-.5);
   @include pad(.5em);
   padding-left: 1em;
   padding-right: 1em;
@@ -365,6 +364,7 @@ a {
 .survey-list {
   @include pad();
   margin-top: 0.5em;
+  min-width: 1171px;
   @include span-columns(10);
   @include shift(1);
   position: relative;
@@ -382,6 +382,9 @@ a {
 .list-heading {
   font-size: 30pt;
   color: $almost-black;
+  background-color: $sky-blue;
+  border-radius: .5em;
+  @include pad(.5em);
   text-shadow: 1px 1px 0px rgba(156, 156, 156, 0.5);
   border-bottom: $dark-grey 3px dashed;
   line-height: 28pt;
@@ -391,6 +394,7 @@ a {
   @include span-columns(3);
   @include omega(4n);
   text-align: center;
+  margin-top: 1em;
   @include shift(.5);
   @include pad(.5em);
   font-family: $body;
@@ -398,32 +402,26 @@ a {
 }
 .block-header {
   font-family: $display;
+  color: $rust;
+  text-shadow: 1px 1px 1px rgba(96, 95, 100, 0);
   font-size: 16pt;
 }
 .block4 {
-  @include span-columns(3);
-  @include omega(4n);
+  @include span-columns(1);
+  @include shift(1);
   text-align: center;
   color: $almost-black;
-  border-bottom: 3px solid $khaki;
-  -webkit-box-shadow: inset 0 -3px $khaki;
-  box-shadow: inset 0 -3px $khaki;
+  font-family: $display;
+  margin-top: 1em;
+  font-size: 12pt;
+  z-index: 9;
 }
 
-.options-nav {
-  @include span-columns(8);
-  @include omega();
-  @include shift(2);
-  @include pad();
-  position: relative;
-  top: 10em;
-  z-index: 9;
-  background-color: $khaki;
-  border-right: 1px black groove;
-  -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
-  }
+.space {
+  color: $almost-black;
+  border-radius: 1em;
+  background-color: $sea-foam;
+}
 
 /*------------------------------------*\
 #NEW SURVEYS PAGE
@@ -441,11 +439,6 @@ a {
 .error-explanation {
   font-family: $display;
   color: $grey-white;
-}
-
-.field {
-  margin: 1em;
-  color: black;
 }
 
 .add-question-button {
@@ -539,6 +532,41 @@ a {
 \*------------------------------------*/
 
 /*------------------------------------*\
+#SURVEYS NEW / EDIT/ FORM PAGEs
+\*------------------------------------*/
+.edit {
+  font-color: $almost-black;
+  font-size: 24pt;
+  font-family: $display;
+  text-shadow: 1px 1px 2px rgba(249, 249, 249, 1);
+
+}
+
+.field {
+  margin: 1em;
+  color: black;
+  font-family: $body;
+}
+.actual {
+  margin: 1em;
+  color: black;
+  font-family: $body;
+  background-color: $rust-shadow;
+  border: 3px dashed $almost-black;
+  @include pad();
+}
+.filler-actual {
+  margin: 1em;
+  color: black;
+  font-family: $body;
+  background-color: $grey-white;
+  opacity: .6;
+  @include pad(1.5em);
+}
+textarea {
+  @include pad(.2em);
+}
+/*------------------------------------*\
 #SESSIONS
 \*------------------------------------*/
 .session {
@@ -546,7 +574,6 @@ a {
   @include shift(1);
   @include pad();
   margin-top: 2em;
-  padding-top: 2em;
   background-color: $light-sky-blue;
   border-top: 1.5px $grey-white groove;
   border-left: 0.5px $grey-white groove;
@@ -591,4 +618,78 @@ a {
   border-right-color: #595d5e;
   border-width: 18px;
   margin-top: -18px;
+}
+.login-button-sessions {
+  position: relative;
+  vertical-align: top;
+  width: 15%;
+  height: 30px;
+  margin-top: 3em;
+  margin-left: $button-margin1;
+  padding-bottom: 0.25em;
+  font-size: 22px;
+  line-height: 1em;
+  color: $grey-white;
+  text-align: center;
+  font-family: $display;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: $sky-blue;
+  border: 0;
+  border-bottom: 2px solid $sky-blue-shadow;
+  border-radius: 25em;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px $sky-blue-shadow;
+  box-shadow: inset 0 -2px $sky-blue-shadow;
+}
+.login-button-sessions:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.login-button-sessions:hover {
+  background: $sky-blue-shadow;
+  transition: 0.15s;
+  border-bottom: 2px solid $sky-blue;
+  -webkit-box-shadow: inset 0 -2px $sky-blue;
+  box-shadow: inset 0 -2px $sky-blue;
+}
+
+.possum {
+  @include span-columns(1.5);
+  background-color: $rust;
+  margin-left: 1.5em;
+  @include pad(1.25em);
+  padding-right: 7.7em;
+  border-radius: 5em;
+  position: relative;
+  top: 50%;
+  transform: translateY(-1%);
+  background-color: $rust;
+  border-top: 2px white solid;
+  -webkit-box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+  box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.input-field-sessions {
+  padding: 10px;
+  margin-top: 5em;
+  border: none;
+  border-bottom: solid 2px $dark-grey;
+  font-family: $body;
+  font-size: 12px;
+  border-radius: 0.5em;
+  color: $grey;
+  transition: border 0.3s;
+  margin: input-margin1;
+}
+
+.input-field-sesssions:focus,
+.input-field-sessions.focus {
+  border-top: 1.5px $grey-white solid;
+  border-left: 1px $grey-white solid;
+  border-right: 0.5px black solid;
+  border-bottom: solid 2px $dark-grey;
 }
