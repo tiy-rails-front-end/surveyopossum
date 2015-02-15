@@ -364,6 +364,7 @@ a:hover {
 .survey-list {
   @include pad();
   margin-top: 0.5em;
+  min-width: 1171px;
   @include span-columns(10);
   @include shift(1);
   position: relative;
