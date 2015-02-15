@@ -271,14 +271,12 @@ a {
 \*------------------------------------*/
 
 .logout-button {
-  position: relative;
-  top: 50px;
+  margin-top: 3em;
   float: left;
   @include pad(.5em);
   @include shift(-1.1);
   padding-left: 1em;
   padding-right: 1em;
-  margin: .25em;
   font-family: $display;
   font-size: 24pt;
   background-color: $rust;
@@ -309,10 +307,8 @@ a {
 }
 
 .create-new-button {
-  position: relative;
-  top: 50px;
+  margin-top: 3em;
   color: $grey-white;
-  margin: .25em;
   margin-right: 1.5em;
   @include shift(-.1);
   @include pad(.5em);
