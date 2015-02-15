@@ -266,6 +266,10 @@ a {
   text-decoration: none;
   color: $blue;
 }
+a:hover {
+  text-decoration: none;
+  color: $almost-black;
+}
 /*------------------------------------*\
 #INDEX PAGE
 \*------------------------------------*/
@@ -274,7 +278,6 @@ a {
   margin-top: 3em;
   float: left;
   @include pad(.5em);
-  @include shift(-1.1);
   padding-left: 1em;
   padding-right: 1em;
   font-family: $display;
@@ -310,7 +313,8 @@ a {
   margin-top: 3em;
   color: $grey-white;
   margin-right: 1.5em;
-  @include shift(-.1);
+  margin-left: 0;
+  @include shift(-.5);
   @include pad(.5em);
   padding-left: 1em;
   padding-right: 1em;
@@ -393,11 +397,13 @@ a {
 }
 .block-header {
   font-family: $display;
+  color: $rust;
+  text-shadow: 1px 1px 1px rgba(96, 95, 100, 0);
   font-size: 16pt;
 }
 .block4 {
-  @include span-columns(3);
-  @include omega(4n);
+  @include span-columns(2);
+  @include shift(.4);
   text-align: center;
   color: $almost-black;
   border-bottom: 3px solid $khaki;
@@ -406,10 +412,13 @@ a {
 }
 
 .options-nav {
-  @include span-columns(8);
+  @include span-columns(9);
   @include omega();
-  @include shift(2);
-  @include pad();
+  @include shift(1.5);
+  @include pad(1em);
+  border-radius: 2em;
+  font-family: $display;
+  font-size: 14pt;
   position: relative;
   top: 10em;
   z-index: 9;
