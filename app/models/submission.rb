@@ -3,4 +3,8 @@ class Submission < ActiveRecord::Base
   belongs_to :survey
   accepts_nested_attributes_for :answers,
   :allow_destroy => true
+
+  def build_answers
+    answers.build
+  end
 end

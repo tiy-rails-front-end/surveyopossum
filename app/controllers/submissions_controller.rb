@@ -8,15 +8,10 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(submission_params)
-
-    respond_to do |format|
-      if @submission.save
-        format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
-        format.json { render :show, status: :created, location: @submission }
-      else
-        format.html { render :new }
-        format.json { render json: @submission.errors, status: :unprocessable_entity }
-      end
+    if @submission.save
+     redirect_to surveys_path, notice: 'Submission was successfully created.'
+    else
+      redirect_to back, notice: "An error prevented your submission from being saved"
     end
   end
 
@@ -24,7 +19,6 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-
   end
 
   def index
@@ -38,6 +32,6 @@ class SubmissionsController < ApplicationController
     end
 
     def submission_params
-      params.require(:submission).permit(:survey_id)
+      params.require(:submission).permit(:survey_id, answers_attributes: [:id, :answer_text, :submission_id, :question_id])
     end
   end

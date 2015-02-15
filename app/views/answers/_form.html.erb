@@ -1,32 +1,8 @@
-<%= ff.fields_for :answer do |fff| %>
-  <% if @answer.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this survey from being saved:</h2>
-    <ul>
-      <% @answer.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <div class="field">
-    <div <%= "#{"hidden" if question.question_type != "Short Form"}" %>>
-      <%= render 'answers/short_form', :fff=> fff %>
-    </div>
+<div class="field">
+    <%= render 'answers/short_form', :ff => ff, :question => question  %>
 
-    <div <%= "#{"hidden" if question.question_type != "Long Form"}" %>>
-      <%= render 'answers/long_form', :fff=> fff %>
-    </div>
+    <%= render 'answers/long_form', :ff => ff, :question => question %>
 
-    <div <%= "#{"hidden" if question.question_type != "Multiple Choice"}" %>>
-      <%= render 'answers/multiple_choice', {:fff=> fff, :question => question} %>
-    </div>
+    <%= render 'answers/multiple_choice', :ff=> ff, :question => question %>
 
-    <div <%= "#{"hidden" if question.question_type != "Yes/No"}" %>>
-      <%= render 'answers/yes_no', :fff=> fff %>
-    </div>
-
-    <%= ff.hidden_field :question_id, :value=> question.id%>
-  </div>
-
-<% end %>
+    <%= render 'answers/yes_no', :ff => ff, :question => question %>

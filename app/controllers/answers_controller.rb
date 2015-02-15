@@ -19,7 +19,7 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     if @answer.save
-      redirect_to answers_path, notice: 'Answer was successfully created.'
+      redirect_to surveys_path, notice: 'Answer was successfully created.'
     else
       redirect_to :back, notice: 'You must answer required questions'
     end

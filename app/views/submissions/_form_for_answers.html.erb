@@ -1,0 +1,16 @@
+<%= form_for(@submission) do |f| %>
+  <%=f.hidden_field :survey_id, :value => survey.id %>
+  <% f.object.build_answers %>
+  <strong>Questions:</strong>
+  <% survey.questions.each do |question| %>
+    <li><%= question.question_text %></li>
+    <%= f.fields_for :answers do |ff| %>
+    <%= render 'answers/form', :question => question, :ff => ff %>
+    <%= ff.hidden_field :question_id, :value=> question.id%>
+
+      <% end %><br>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>

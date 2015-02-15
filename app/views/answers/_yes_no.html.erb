@@ -1,6 +1,6 @@
-<p>
-  <%= fff.label :answer_text, "Answer" %><br>
-  <%= fff.radio_button :answer_text, "yes", required: "#{"required" if @answer.errors}" %>Yes
-  <%= fff.radio_button :answer_text, "no", required: "#{"required" if @answer.errors}" %>No
-
-</p>
+<% if question.question_type != "Yes/No"%>
+  <%= ff.hidden_field :answer_text %>
+<% else %>
+  <%= ff.radio_button :answer_text, "yes", required: "#{"required" if @submission.answers.each {|a| a.errors}}" %>Yes
+  <%= ff.radio_button :answer_text, "no", required: "#{"required" if @submission.answers.each {|a| a.errors}}" %>No
+<% end %>

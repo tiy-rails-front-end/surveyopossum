@@ -1,6 +1,8 @@
-<% count = 1 %>
 <% question.options.each do |o| %>
-  <%= fff.radio_button :answer_text, o.name, required: "#{"required" if @answer.errors}" %>
-  <%= o.name %>
-  <% count += 1 %>
+  <% if question.question_type != "Multiple Choice" %>
+    <%= ff.hidden_field :answer_text %>
+  <% else %>
+    <%= ff.radio_button :answer_text, o.name, required: "#{"required" if @submission.answers.each {|a| a.errors}}" %>
+    <%= o.name %>
+  <% end %>
 <% end %>

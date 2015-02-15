@@ -9,13 +9,11 @@
   <%= @survey.description %>
 </p>
 
-<%= form_for(@survey) do |f| %>
-  <%= render 'submissions/form', :f=>f %>
-  <div class="actions">
-    <%= f.submit "Submit Answers" %>
-  </div>
+<p>
 
-<% end %>
+  <%= render 'submissions/form_for_answers', survey: @survey %>
+
+</p>
 
 <p>
   <%= link_to "Edit", edit_survey_path(@survey) %> |

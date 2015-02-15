@@ -3,28 +3,24 @@ class SurveysController < ApplicationController
   before_action :authenticate_user, except: [:show]
 
 
-  # GET /surveys
-  # GET /surveys.json
   def index
     @surveys = Survey.all
   end
 
-  # GET /surveys/1
-  # GET /surveys/1.json
+
   def show
     @surveys = Survey.all
-    @answer = Answer.new
+    @submission=Submission.new
     @survey.submissions.build
+
   end
 
-  # GET /surveys/new
   def new
     @survey = Survey.new
     @survey.questions.build
     @survey.questions.each { |q|  q.options.build }
   end
 
-  # GET /surveys/1/edit
   def edit
     @survey.questions.build
     @survey.questions.each { |q|  q.options.build }
@@ -33,8 +29,6 @@ class SurveysController < ApplicationController
     end
   end
 
-  # POST /surveys
-  # POST /surveys.json
   def create
     @survey = Survey.new(survey_params)
 
@@ -49,24 +43,15 @@ class SurveysController < ApplicationController
     end
   end
 
-  # PATCH/PUT /surveys/1
-  # PATCH/PUT /surveys/1.json
   def update
-    respond_to do |format|
-      if @survey.update(survey_params)
-        format.html { redirect_to @survey, notice: 'Survey was successfully updated.' }
-        format.json { render :show, status: :ok, location: @survey }
-      else
-        format.html { render :edit }
-        format.json { render json: @survey.errors, status: :unprocessable_entity }
-      end
+    if @survey.update(survey_params)
+      redirect_to @survey, notice: 'Survey was successfully updated.'
+    else
+       render :edit
     end
   end
-  def answers
 
-  end
-  # DELETE /surveys/1
-  # DELETE /surveys/1.json
+
   def destroy
     @survey.destroy
     respond_to do |format|
@@ -83,6 +68,7 @@ class SurveysController < ApplicationController
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id, :survey_id,
       questions_attributes: [:id, :question_text, :question_type, :is_required, :_destroy,
-        options_attributes: [:id, :name]], submissions_attributes: [:id, :survey_id, answers_attributes: [:id, :answer_text, :submission_id, :question_id]])
+        options_attributes: [:id, :name]], submissions_attributes: [:id, :survey_id,
+        answers_attributes: [:id, :answer_text, :submission_id, :question_id]])
     end
 end
