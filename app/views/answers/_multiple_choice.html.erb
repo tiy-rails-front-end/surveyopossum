@@ -1,6 +1,5 @@
 <% count = 1 %>
 <% question.options.each do |o| %>
-  <%= f.label "Choice #{count}" %>
   <%= f.radio_button :answer_text, o.name, required: "#{"required" if @answer.errors}" %>
   <%= o.name %>
   <% count += 1 %>
