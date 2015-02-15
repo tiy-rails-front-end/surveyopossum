@@ -381,6 +381,9 @@ a:hover {
 .list-heading {
   font-size: 30pt;
   color: $almost-black;
+  background-color: $sky-blue;
+  border-radius: .5em;
+  @include pad(.5em);
   text-shadow: 1px 1px 0px rgba(156, 156, 156, 0.5);
   border-bottom: $dark-grey 3px dashed;
   line-height: 28pt;
@@ -390,6 +393,7 @@ a:hover {
   @include span-columns(3);
   @include omega(4n);
   text-align: center;
+  margin-top: 1em;
   @include shift(.5);
   @include pad(.5em);
   font-family: $body;
@@ -402,32 +406,21 @@ a:hover {
   font-size: 16pt;
 }
 .block4 {
-  @include span-columns(2);
-  @include shift(.4);
+  @include span-columns(1);
+  @include shift(1);
   text-align: center;
   color: $almost-black;
-  border-bottom: 3px solid $khaki;
-  -webkit-box-shadow: inset 0 -3px $khaki;
-  box-shadow: inset 0 -3px $khaki;
+  font-family: $display;
+  margin-top: 1em;
+  font-size: 10pt;
+  z-index: 9;
 }
 
-.options-nav {
-  @include span-columns(9);
-  @include omega();
-  @include shift(1.5);
-  @include pad(1em);
-  border-radius: 2em;
-  font-family: $display;
-  font-size: 14pt;
-  position: relative;
-  top: 10em;
-  z-index: 9;
-  background-color: $khaki;
-  border-right: 1px black groove;
-  -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
-  }
+.space {
+  color: $almost-black;
+  border-radius: 1em;
+  background-color: $sea-foam;
+}
 
 /*------------------------------------*\
 #NEW SURVEYS PAGE

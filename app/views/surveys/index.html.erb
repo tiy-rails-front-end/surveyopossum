@@ -1,9 +1,3 @@
-<!-- TESTING NOTES!
-It looks like the ruby is sticking the results in the wrong div class.
-The new survey details are going into <div class= "options-nav">
-But they should be going into <div class="survey-list">
-and the options nav is duplicating itself with every new survey made-->
-
 <body class="white">
   <div class="heading-container with-button">
 
@@ -17,24 +11,26 @@ and the options nav is duplicating itself with every new survey made-->
     <span class="create-new-button"><%= link_to 'New Survey', new_survey_path %></span>
 
     </div>
-
-  </div>
       <div class="survey-list">
+
         <h1 class= "list-heading">Survey List</h1>
         <li class ="block3 block-header">Title </li>
         <li class ="block3 block-header">Description </li>
         <li class ="block3 block-header">Author</li>
         <% @surveys.each do |survey| %>
-        <li class ="block3"><td><%= survey.title %></td> </li>
+
+        <li class ="block3"><%= survey.title %> </li>
         <li class ="block3"><td><%= survey.description %></td></li>
         <li class ="block3"><td><%= survey.author_id %></td></li>
-      </div>
-      <div class="options-nav">
+        <div class="space"></div>
+
         <li class ="block4">  <td><%= link_to 'Take Survey', survey %></td> </li>
-        <li class ="block4">  <td><%= link_to 'See Answers', submissions_path(:survey_id => survey.id) %></td> </li>
+        <li class ="block4">  <td><%= link_to 'See Answers', submissions_path(:survey_id => survey.id) %> </li>
         <li class ="block4"> <td><%= link_to 'Edit', edit_survey_path(survey) %></td> </li>
         <li class ="block4">  <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td> </li>
-        <%= link_to 'New Survey', new_survey_path %>
+        <li class ="block4"><%= link_to 'New Survey', new_survey_path %></li>
+        <div class="space"><div>
+
       </div>
-    </div>
+
     <% end %>
