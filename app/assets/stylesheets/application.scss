@@ -18,145 +18,172 @@
 /*------------------------------------*\
 #COLORS
 \*------------------------------------*/
-
-$white: #ffffff;
-
-$grey-white: #e9e9eb;
-
-$grey:  #605F64;
-
+$white: #fff;
+$grey-white: #e6e6e6;
+$grey: #605f64;
 $sea-foam: #98d6cd;
-
 $sea-foam-shadow: #43a092;
-
 $dark-grey: #333640;
-
 $rust: #ad483c;
-
 $rust-shadow: #84372e;
-
 $blue: #194996;
-
+$light-sky-blue: #6cc6f7;
 $sky-blue: #3c9dd9;
-
 $sky-blue-shadow: #25698e;
-
 $khaki: #e8d8ae;
-
 $almost-black: #1b191e;
-
-
 /*------------------------------------*\
 #TYPE
 \*------------------------------------*/
-
 $display: 'Mouse Memoirs', sans-serif;
-
 $body: 'Source Sans', sans-serif;
-
 $bold: bolder;
-
 $light: lighter;
-
 $italic: italic;
-
-
-
-
+/*------------------------------------*\
+#PADDING / MARGINS
+\*------------------------------------*/
+$button-margin1: 1em;
+$input-margin1: 1em;
+/*------------------------------------*\
+#BORDERS
+\*------------------------------------*/
+$border-1: 1px outset $grey-white;
+/*------------------------------------*\
+#BODY
+\*------------------------------------*/
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $blue;
+  @include span-columns(12);
+}
+/*------------------------------------*\
+#BASIC TEXT STYLES
+\*------------------------------------*/
+h1 {
+  font-family: $display;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(237, 237, 237, 1);
+}
+p {
+  font-family: $body;
+  font-size: 10pt;
+}
 /*------------------------------------*\
 #HEADING (HEADER)
 \*------------------------------------*/
-
 .heading-container {
-  @include fill-parent();
-  @include pad(default);
-  @include row(table);
-  margin: 0;
-  background-color: $khaki;
+  // @include outer-container;
+  @include span-columns(12);
+  @include fill-parent;
+  letter-spacing: 1px;
+  background-color: $sea-foam;
   position: fixed;
-
+  padding-top: 1em;
+  padding-bottom: 1em;
+  // border: 1px dashed black;
+  z-index: 10;
+  -webkit-box-shadow: 5px 5px 0 0 rgba(0,0,0,0.9);
+  -moz-box-shadow: 5px 5px 0 0 rgba(0,0,0,0.9);
+  box-shadow: 5px 5px 0 0 rgba(0,0,0,0.9);
 }
-
+.possum-logo {
+  @include span-columns(1.5);
+  background-color: $rust;
+  margin-left: 1.5em;
+  @include pad(1.25em);
+  padding-right: 7.7em;
+  border-radius: 5em;
+  position: relative;
+  top: 50%;
+  transform: translateY(-1%);
+  background-color: $rust;
+  border-top: 2px white solid;
+  -webkit-box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+  box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+}
 .heading-text {
+  @include span-columns(10);
   font-family: $display;
   font-weight: $bold;
+  font-size: 40pt;
+  left: 10px;
+  margin-left: -.5em;
+  text-shadow: 2px 2px 2px #fff;
+  @include pad(.15em);
   color: $almost-black;
 }
-
-
-
 /*------------------------------------*\
 #CONTAINERS
 \*------------------------------------*/
-
-body {
-  @include outer-container();
-  margin: 0;
-  padding: 0;
-  background-color: $khaki;
-
-}
-
-
 .main-content-container {
-  @include span-columns(8);
-  @include shift(2);
+  @include span-columns(12);
+  @include pad(5em);
+  padding-bottom: 5em;
   background-color: $blue;
-  margin: 10px;
-  padding: 10px;
-  top: 100px;
-
+  margin-top: 0.5em;
+  position: relative;
+  top: 9.9em;
+  border-top: 1.5px white solid;
 }
 
-.login-tab {
-  background-color: $sea-foam;
-}
-
-.tab {
-  margin: 10px;
-  border-radius: .5em;
-}
 .login-container {
-  border-radius: .5em;
-  background-color: $sea-foam;
-
-
+  border-radius: 3em;
+  @include span-columns(5);
+  padding: 2em 1em 2em 1.25em;
+  @include omega();
+  margin-bottom: 1em;
+  background-color: $khaki;
+  -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
+  border-top: 1.5px $grey-white solid;
+  border-left: 0.75px $grey-white solid;
+  border-right: 0.5px black solid;
 }
-
-.signup-tab {
-
-  background-color: $rust;
-
-}
-
 .signup-container {
-  border-radius: 0 0 1em;
+  padding: 2em 1em;
+  @include shift(.2);
+  @include span-columns(7);
+  border-radius: 0.25em;
   background-color: $rust;
-
+  border-top: 1.5px $grey-white solid;
+  border-left: 0.5px $grey-white solid;
+  border-right: 1px black solid;
+  -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
 }
+
 /*------------------------------------*\
 #BUTTONS
 \*------------------------------------*/
-
 /*
 /*stolen from : http://cssdeck.com/labs/beautiful-flat-buttons
 ==================================================*/
 .submit-button {
   position: relative;
   vertical-align: top;
-  width: 15%;
+  width: 20%;
   height: 30px;
-  padding: 0;
+  margin-left: $button-margin1;
   font-size: 22px;
-  color: $dark-grey;
+  color: black;
   text-align: center;
   font-family: $display;
-  letter-spacing: .5px;
+  line-height: 1em;
+  letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   background: $sea-foam;
   border: 0;
   border-bottom: 2px solid $sea-foam-shadow;
-  border-radius: .25em;
+  border-radius: 0.25em;
   cursor: pointer;
   -webkit-box-shadow: inset 0 -2px $sea-foam-shadow;
   box-shadow: inset 0 -2px $sea-foam-shadow;
@@ -167,18 +194,26 @@ body {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
+.submit-button:hover {
+  background: $sea-foam-shadow;
+  transition: 0.15s;
+  border-bottom: 2px solid $sea-foam;
+  -webkit-box-shadow: inset 0 -2px $sea-foam;
+  box-shadow: inset 0 -2px $sea-foam;
+}
 .login-button {
   position: relative;
   vertical-align: top;
-  width: 15%;
+  width: 20%;
   height: 30px;
-  padding: 0;
+  margin-left: $button-margin1;
+  padding-bottom: 0.25em;
   font-size: 22px;
+  line-height: 1em;
   color: $grey-white;
   text-align: center;
   font-family: $display;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   background: $sky-blue;
   border: 0;
@@ -194,33 +229,34 @@ body {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
-
+.login-button:hover {
+  background: $sky-blue-shadow;
+  transition: 0.15s;
+  border-bottom: 2px solid $sky-blue;
+  -webkit-box-shadow: inset 0 -2px $sky-blue;
+  box-shadow: inset 0 -2px $sky-blue;
+}
 /*------------------------------------*\
 #CHECKBOXES
 \*------------------------------------*/
-
-.flatCheckbox
-{
+.flatCheckbox {
   width: 120px;
   height: 50px;
   margin: 20px 30px;
   position: relative;
 }
-.flatCheckbox div
-{
+.flatCheckbox div {
   background: #2fca6c;
   position: relative;
-  top:-30px;
+  top: -30px;
 }
-.flatCheckbox label
-{
+.flatCheckbox label {
   display: block;
-  -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   cursor: pointer;
   position: absolute;
   top: 5px;
@@ -228,25 +264,21 @@ body {
   left: 8px;
   background: #fffffd;
 }
-.flatCheckbox label:before
-{
+.flatCheckbox label:before {
   color: #ccc;
-  content:'|||';
+  content: '|||';
   font-size: 15px;
   letter-spacing: 1px;
   position: absolute;
   left: 7px;
-  top:11px;
+  top: 11px;
 }
-.flatCheckbox input[type=checkbox]:checked ~ div
-{
+.flatCheckbox input[type=checkbox]:checked ~ div {
   background: #e9513a;
 }
-
 .flatCheckbox input[type=checkbox]:checked ~ label {
   left: 75px;
 }
-
 /*------------------------------------*\
 #INPUT BOXES
 \*------------------------------------*/
@@ -255,54 +287,77 @@ body {
   border: none;
   border-bottom: solid 2px $dark-grey;
   font-family: $body;
+  font-size: 12px;
+  border-radius: 0.5em;
   color: $grey;
   transition: border 0.3s;
+  margin: input-margin1;
+}
+.field {
+  margin: input-margin1;
 }
 .input-field:focus,
 .input-field.focus {
+  border-top: 1.5px $grey-white solid;
+  border-left: 1px $grey-white solid;
+  border-right: 0.5px black solid;
   border-bottom: solid 2px $dark-grey;
 }
-
-
 /*------------------------------------*\
 #RADIOS
 \*------------------------------------*/
 
-div {
-  margin:0 0 0.75em 0;
+/*------------------------------------*\
+#SESSIONS
+\*------------------------------------*/
+.session {
+  @include span-columns(10);
+  @include shift(1);
+  @include pad();
+  margin-top: 2em;
+  padding-top: 2em;
+  background-color: $light-sky-blue;
+  border-top: 1.5px $grey-white groove;
+  border-left: 0.5px $grey-white groove;
+  border-right: 1px black groove;
+  -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.6);
+  border-radius: .75em;
 }
-
-input[type="radio"] {
-  display:none;
-}
-input[type="radio"] + label {
-  color: $dark-grey;
-  font-family:Arial, sans-serif;
-  font-size:14px;
-}
-input[type="radio"] + label span {
-  display:inline-block;
-  width:19px;
-  height:19px;
-  margin:-1px 4px 0 0;
-  vertical-align:middle;
-  cursor:pointer;
-  -moz-border-radius:  50%;
-  border-radius:  50%;
-}
-
-input[type="radio"] + label span {
-  background-color:$dark-grey;
-}
-
-input[type="radio"]:checked + label span{
+.message {
+  @include pad();
+  padding-top: 1em;
+  font-family: $display;
+  font-size: 14pt;
+  letter-spacing: 0.75px;
   background-color: $khaki;
+  margin-right: 1em;
+  position: relative;
+  background: #e8d8ae;
+  border: 2px solid #595d5e;
+  border-radius: .5em;
 }
-
-input[type="radio"] + label span,
-input[type="radio"]:checked + label span {
-  -webkit-transition:background-color 0.4s linear;
-  -o-transition:background-color 0.4s linear;
-  -moz-transition:background-color 0.4s linear;
-  transition:background-color 0.4s linear;
+.message:after,
+.message:before {
+  right: 100%;
+  top: 60%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.message:after {
+  border-color: rgba(232, 216, 174, 0);
+  border-right-color: #e8d8ae;
+  border-width: 15px;
+  margin-top: -15px;
+}
+.message:before {
+  border-color: rgba(89, 93, 94, 0);
+  border-right-color: #595d5e;
+  border-width: 18px;
+  margin-top: -18px;
 }
