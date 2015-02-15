@@ -18,7 +18,7 @@
 /*------------------------------------*\
 #COLORS
 \*------------------------------------*/
-$white: #ffffff;
+$white: #fff;
 $grey-white: #e6e6e6;
 $grey: #605f64;
 $sea-foam: #98d6cd;
@@ -33,6 +33,11 @@ $sky-blue-shadow: #25698e;
 $khaki: #e8d8ae;
 $khaki-shadow: #ceb882;
 $almost-black: #1b191e;
+
+// .white {
+//   background-color: $white;
+// }
+
 /*------------------------------------*\
 #TYPE
 \*------------------------------------*/
@@ -62,6 +67,7 @@ body {
   padding: 0;
   background-color: $blue;
   @include span-columns(12);
+  z-index: -1;
 }
 /*------------------------------------*\
 #BASIC TEXT STYLES
@@ -128,7 +134,7 @@ p {
 }
 
 .shorter {
-  @include span-columns(8);
+  @include span-columns(6);
 }
 
 .smaller {
@@ -182,7 +188,7 @@ p {
 }
 
 /*------------------------------------*\
-#BUTTONS
+#BUTTONS AND LINKS
 \*------------------------------------*/
 /*
 /*stolen from : http://cssdeck.com/labs/beautiful-flat-buttons
@@ -257,6 +263,10 @@ p {
   box-shadow: inset 0 -2px $sky-blue;
 }
 
+a {
+  text-decoration: none;
+  color: $blue;
+}
 /*------------------------------------*\
 #INDEX PAGE
 \*------------------------------------*/
@@ -264,21 +274,24 @@ p {
 .logout-button {
   position: relative;
   top: 50px;
+  float: left;
   @include pad(.5em);
+  @include shift(-1.1);
   padding-left: 1em;
   padding-right: 1em;
+  margin: .25em;
   font-family: $display;
   font-size: 24pt;
-  background-color: $khaki;
+  background-color: $rust;
   line-height: 1em;
   letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   border: 0;
-  border-bottom: 3px solid $khaki-shadow;
+  border-bottom: 3px solid $rust-shadow;
   border-radius: 0.25em;
   cursor: pointer;
-  -webkit-box-shadow: inset 0 -3px $khaki-shadow;
-  box-shadow: inset 0 -3px $khaki-shadow;
+  -webkit-box-shadow: inset 0 -3px $rust-shadow;
+  box-shadow: inset 0 -3px $rust-shadow;
 }
 
 .logout-button:active {
@@ -288,6 +301,46 @@ p {
   box-shadow: none;
 }
 .logout-button:hover {
+  background: $rust-shadow;
+  transition: 0.15s;
+  color: $almost-black;
+  border-bottom: 3px solid $rust;
+  -webkit-box-shadow: inset 0 -3px $rust;
+  box-shadow: inset 0 -3px $rust;
+}
+
+.create-new-button {
+  position: relative;
+  top: 50px;
+  color: $grey-white;
+  margin: .25em;
+  margin-right: 1.5em;
+  @include shift(-.1);
+  @include pad(.5em);
+  padding-left: 1em;
+  padding-right: 1em;
+  float: right;
+  font-family: $display;
+  font-size: 24pt;
+  background-color: $khaki;
+  line-height: 1em;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border: 0;
+  border-bottom: 3px solid $khaki-shadow;
+  border-radius: 1.25em;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -3px $khaki-shadow;
+  box-shadow: inset 0 -3px $khaki-shadow;
+}
+
+.create-new-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.create-new-button:hover {
   background: $khaki-shadow;
   transition: 0.15s;
   color: $almost-black;
@@ -299,17 +352,24 @@ p {
 .index-content {
   @include pad(1em);
   @include outer-container;
+  @include span-columns(12);
   padding-bottom: 5em;
-  background-color: $rust;
+  background-color: $grey-white;
   margin-top: 0.5em;
   position: relative;
   top: 9em;
   border-top: 1.5px white solid;
   @include span-columns(12);
   @include shift(.5);
-
+}
 .survey-list {
-  @include pad(1em);
+  @include pad();
+  margin-top: 0.5em;
+  @include span-columns(10);
+  @include shift(1);
+  position: relative;
+  border-radius: .5em;
+  top: 9em;
   background-color: $grey-white;
   border-top: 1.5px $grey-white groove;
   border-left: 0.5px $grey-white groove;
@@ -317,7 +377,6 @@ p {
   -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
-}
 }
 
 .list-heading {
@@ -328,16 +387,43 @@ p {
   line-height: 28pt;
 }
 
-.block {
-  @include span-columns(3.5);
+.block3 {
+  @include span-columns(3);
   @include omega(4n);
   text-align: center;
+  @include shift(.5);
+  @include pad(.5em);
+  font-family: $body;
+  font-size: 12pt;
 }
 .block-header {
   font-family: $display;
-  font-size: 15pt;
-
+  font-size: 16pt;
 }
+.block4 {
+  @include span-columns(3);
+  @include omega(4n);
+  text-align: center;
+  color: $almost-black;
+  border-bottom: 3px solid $khaki;
+  -webkit-box-shadow: inset 0 -3px $khaki;
+  box-shadow: inset 0 -3px $khaki;
+}
+
+.options-nav {
+  @include span-columns(8);
+  @include omega();
+  @include shift(2);
+  @include pad();
+  position: relative;
+  top: 10em;
+  z-index: 9;
+  background-color: $khaki;
+  border-right: 1px black groove;
+  -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
+  }
 
 /*------------------------------------*\
 #CHECKBOXES

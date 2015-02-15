@@ -1,44 +1,36 @@
+<body class="white">
+  <div class="heading-container with-button">
 
-<div class="heading-container with-button">
+    <span class="possum-logo small-logo">
+      <%= image_tag 'possum-logo-khaki.jpg', width: '100' %>
+    </span>
 
-  <span class="possum-logo">
-    <%= image_tag 'possum-logo-khaki.jpg', width: '100' %>
-  </span>
+    <h1 class="heading-text shorter smaller">SurveyPossum Form Builder</h1>
+    <!-- need to add a 'logout' button that takes the user back to 'sessions' here' -->
+    <span class="logout-button">Logout</span>
+      <div></div>
+    <span class="create-new-button"><%= link_to 'New Survey', new_survey_path %></span>
 
-  <h1 class="heading-text shorter">SurveyPossum Form Builder</h1>
-<!-- need to add a 'logout' button that takes the user back to 'sessions' here' -->
-  <span class="logout-button">Logout<span>
-</div>
+    </div>
 
-<div class="index-content">
-  <h1>Listing Surveys</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Author</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @surveys.each do |survey| %>
-        <tr>
-          <td><%= survey.title %></td>
-          <td><%= survey.description %></td>
-          <td><%= survey.author_id %></td>
-          <td><%= link_to 'Take Survey', survey %></td>
-          <td><%= link_to 'See Answers', submissions_path(:survey_id => survey.id) %></td>
-          <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-          <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </div>
+      <div class="survey-list">
+        <h1 class= "list-heading">Survey List</h1>
+        <li class ="block3 block-header">Title </li>
+        <li class ="block3 block-header">Description </li>
+        <li class ="block3 block-header">Author</li>
+        <% @surveys.each do |survey| %>
+        <li class ="block3"><td><%= survey.title %></td> </li>
+        <li class ="block3"><td><%= survey.description %></td></li>
+        <li class ="block3"><td><%= survey.author_id %></td></li>
+      </div>
+      <div class="options-nav">
+        <li class ="block4">  <td><%= link_to 'Take Survey', survey %></td> </li>
+        <li class ="block4">  <td><%= link_to 'See Answers', submissions_path(:survey_id => survey.id) %></td> </li>
+        <li class ="block4"> <td><%= link_to 'Edit', edit_survey_path(survey) %></td> </li>
+        <li class ="block4">  <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td> </li>
         </tr>
+    </div>
       <% end %>
-    </tbody>
-  </table>
 
-  <br>
-
-  <%= link_to 'New Survey', new_survey_path %>
-</div>
+</body>

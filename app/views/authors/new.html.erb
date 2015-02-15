@@ -10,7 +10,7 @@
 
 <div class="main-content-container">
 
-  <div class="tab-container login-container selected block">
+  <div class="tab-container login-container selected">
     <%= form_tag :action => :create, :controller=> :sessions do %>
     <%= text_field_tag :email, nil, class: "input-field login-email-field", type: "email", required: "required", placeholder: "email" %>
     <%= password_field_tag :password, nil, placeholder: "password", class: "input-field login-password-field", required: "required" %>
@@ -21,7 +21,7 @@
 
   <div></div>
 
-  <div class="tab-container signup-container block">
+  <div class="tab-container signup-container">
 
     <%= render 'form' %>
 
