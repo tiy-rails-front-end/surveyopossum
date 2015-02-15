@@ -21,10 +21,7 @@ $(function() {
 
   addButton.click(function(e) {
     e.preventDefault(); // prevent form submission
-    var newQuestion = $('.blueprint').clone(true); // creates deep clone of question template
-    newQuestion.removeClass('blueprint'); // removes blueprint class from clone to maintain integrity of blueprint
-    newQuestion.addClass('actual'); // adds actual class to clone to identify it as an actual question
-    newQuestion.insertAfter($('.actual').last()); // inserts new question node before the submit button, aka last thing in form
+    newQuestion.clone(true).insertAfter($('.actual').last()); // inserts new question node before the submit button, aka last thing in form
     repairQuestionIndeces(); // rewrites indeces for all actual questions
     // addButton.insertBefore('.actions'); // moves the add button to the appropriate position
 
@@ -52,9 +49,13 @@ $(function() {
   var deleteButton = $('.delete-question');
 
   deleteButton.click(function(e) {
+    e.preventDefault();
     var current = $(this); // identifying correct delete button and storing it in var current
-    current.closest($('.question-container')).remove(); // removing it's parent container
-    repairQuestionIndeces(); // remapping question indeces
+    var parent = current.closest('.actual');
+    if (parent.prev('.actual').length || parent.next('.actual').length) {
+      current.closest($('.actual')).remove(); // removing it's parent container
+      repairQuestionIndeces(); // remapping question indeces
+    }
   })
 
   //controls dynamic growth of multi-choice answer fields
@@ -113,8 +114,11 @@ $(function() {
     targetNode.attr(attribute, currentAttr.replace( /\d+/g, index));
   }
 
-  $('form').submit(function() {
-    $('*').is(':hidden').toggle();
-  })
-
+  var newQuestion = $('.actual').first().clone(true);
+  $('.question-literal', newQuestion).val('');
+  $('.type-select', newQuestion).val('');
+  if ($('.mc-option-box', newQuestion).is(':visible')) {
+    $('.mc-option', newQuestion).first().nextAll().remove();
+    $('.mc-option-box', newQuestion).toggle();
+  }
 });
