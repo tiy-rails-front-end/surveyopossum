@@ -17,9 +17,16 @@
 $(function() {
 
   var addButton = $('.add-question-button');
-  $('.question-container').first().addClass('blueprint');
+  var typeSelector = $('.type-select');
+  var deleteButton = $('.delete-question');
+  var mcOp = $('.mc-option');
 
-  addButton.click(function(e) {
+  addButton.click(addQuestion);
+  typeSelector.change(toggleMC);
+  deleteButton.click(deleteQuestion);
+  mcOp.keyup(grow);
+
+  function addQuestion(e) {
     e.preventDefault();
     newQuestion.clone(true).insertAfter($('.actual').last());
     var newestQuestion = $('.actual').last();
@@ -31,13 +38,10 @@ $(function() {
       $('.mc-option-box', newestQuestion).toggle();
     }
 
-    repairQuestionIndeces();
+    repairQuestionindices();
+  }
 
-  })
-
-  var typeSelector = $('.type-select');
-
-  typeSelector.change(function(e) {
+  function toggleMC(e) {
     var current = $(this);
     var mcOption = $('.mc-option', current.next());
 
@@ -46,25 +50,22 @@ $(function() {
       var questionIndex = current.attr('name').match(/\d+/);
       var optionName = mcOption.attr('name').replace(/\d+/, questionIndex);
       mcOption.attr('name', optionName);
-      mcOption.keyup(grow);
     } else if (current.next().is(':visible') && current.val() !== 'Multiple Choice') {
       mcOption.nextAll().remove();
       mcOption.val('');
       current.next().toggle();
     }
-  })
+  }
 
-  var deleteButton = $('.delete-question');
-
-  deleteButton.click(function(e) {
+  function deleteQuestion(e) {
     e.preventDefault();
     var current = $(this);
     var parent = current.closest('.actual');
     if (parent.prev('.actual').length || parent.next('.actual').length) {
       current.closest($('.actual')).remove();
-      repairQuestionIndeces();
+      repairQuestionindices();
     }
-  })
+  }
 
   function grow() {
     var item = $(this);
@@ -73,23 +74,23 @@ $(function() {
       var newInput = item.clone(true);
       newInput.insertAfter(item);
       newInput.val('');
-      updateOptionIndeces(item.closest('.question-p'));
+      updateOptionindices(item.closest('.question-p'));
     }
 
     if (item.val() === '' && item.next().val() === '') {
       item.next().remove();
-      updateOptionIndeces(item.closest('.question-p'));
+      updateOptionindices(item.closest('.question-p'));
     }
 
     item.on('blur', function() {
       if (item.val() === '' && item.next().val() !== undefined) {
         item.remove();
-        updateOptionIndeces(item.closest('.question-p'));
+        updateOptionindices(item.closest('.question-p'));
       }
     })
   }
 
-  function updateOptionIndeces(parent) {
+  function updateOptionindices(parent) {
     var optionArr = $('.mc-option', parent).toArray();
 
     for (var i = 0; i < optionArr.length; ++i) {
@@ -102,7 +103,7 @@ $(function() {
 
   }
 
-  function repairQuestionIndeces() {
+  function repairQuestionindices() {
     var questArr = $('.actual').toArray();
 
     for (var i = 0; i < questArr.length; ++i) {
