@@ -11,9 +11,8 @@
 
 
 <p>
-  <strong>Questions:</strong>
   <% @survey.questions.each do |question| %>
-    <li><%= question.question_text %></li>
+  <strong>Question:</strong> <%= question.question_text %>
     <%= render "answers/form", question: question %>
   <% end %>
 </p>

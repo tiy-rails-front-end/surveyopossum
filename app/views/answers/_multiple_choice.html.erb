@@ -1,7 +1,7 @@
 <% count = 1 %>
 <% question.options.each do |o| %>
-  <%= f.label "Choice #{count}" %><br>
+  <%= f.label "Choice #{count}" %>
+  <%= f.radio_button :answer_text, o.name, required: "#{"required" if @answer.errors}" %>
   <%= o.name %>
-  <%= f.check_box :answer_text, required: "#{"required" if @answer.errors}" %>
   <% count += 1 %>
 <% end %>
