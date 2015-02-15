@@ -85,11 +85,11 @@ $(function() {
       $('body').off('mouseup', reorderDone);
       $('body').off('mousemove', reorder);
       $(document).off('selectstart, dragstart', cancelTextSelection);
-      repairQuestionIndeces();
+      repairQuestionindices();
     }
   }
 
-  function repairQuestionIndeces() {
+  function repairQuestionindices() {
     var questArr = $('.actual').toArray();
 
     for (var i = 0; i < questArr.length; ++i) {
