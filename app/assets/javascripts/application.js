@@ -20,20 +20,28 @@ $(function() {
   $('.question-container').first().addClass('blueprint');
 
   addButton.click(function(e) {
-    e.preventDefault(); // prevent form submission
-    newQuestion.clone(true).insertAfter($('.actual').last()); // inserts new question node before the submit button, aka last thing in form
-    repairQuestionIndeces(); // rewrites indeces for all actual questions
-    // addButton.insertBefore('.actions'); // moves the add button to the appropriate position
+    e.preventDefault();
+    newQuestion.clone(true).insertAfter($('.actual').last());
+    var newestQuestion = $('.actual').last();
+    $('.question-literal', newestQuestion).val('');
+    $('.type-select', newestQuestion).val('Question Type');
+
+    if ($('.mc-option-box', newestQuestion).is(':visible')) {
+      $('.mc-option', newestQuestion).first().nextAll().remove();
+      $('.mc-option-box', newestQuestion).toggle();
+    }
+
+    repairQuestionIndeces();
 
   })
 
   var typeSelector = $('.type-select');
 
   typeSelector.change(function(e) {
-    var current = $(this); // identifying the correct type-select and storing it to var current
+    var current = $(this);
     var mcOption = $('.mc-option', current.next());
 
-    if (current.next().is(':hidden') && current.val() === 'Multiple Choice') { // checking the value of the selected option against 'Multiple Choice'
+    if (current.next().is(':hidden') && current.val() === 'Multiple Choice') {
       current.next().toggle();
       var questionIndex = current.attr('name').match(/\d+/);
       var optionName = mcOption.attr('name').replace(/\d+/, questionIndex);
@@ -114,11 +122,18 @@ $(function() {
     targetNode.attr(attribute, currentAttr.replace( /\d+/g, index));
   }
 
+  $('form').submit(function(e) {
+    var selectArr = $('.type-select').toArray();
+
+    for (var i = 0; i < selectArr.length; ++i) {
+      if ($(selectArr[i]).val() === 'Question Type') {
+        e.preventDefault();
+        alert('please select a question type for all questions');
+        return;
+      }
+    }
+  })
+
   var newQuestion = $('.actual').first().clone(true);
-  $('.question-literal', newQuestion).val('');
-  $('.type-select', newQuestion).val('');
-  if ($('.mc-option-box', newQuestion).is(':visible')) {
-    $('.mc-option', newQuestion).first().nextAll().remove();
-    $('.mc-option-box', newQuestion).toggle();
-  }
+
 });
