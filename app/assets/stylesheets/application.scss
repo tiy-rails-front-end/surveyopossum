@@ -18,7 +18,7 @@
 /*------------------------------------*\
 #COLORS
 \*------------------------------------*/
-$white: #fff;
+$white: #ffffff;
 $grey-white: #e6e6e6;
 $grey: #605f64;
 $sea-foam: #98d6cd;
@@ -31,6 +31,7 @@ $light-sky-blue: #6cc6f7;
 $sky-blue: #3c9dd9;
 $sky-blue-shadow: #25698e;
 $khaki: #e8d8ae;
+$khaki-shadow: #ceb882;
 $almost-black: #1b191e;
 /*------------------------------------*\
 #TYPE
@@ -78,7 +79,7 @@ p {
 #HEADING (HEADER)
 \*------------------------------------*/
 .heading-container {
-  // @include outer-container;
+
   @include span-columns(12);
   @include fill-parent;
   letter-spacing: 1px;
@@ -86,12 +87,18 @@ p {
   position: fixed;
   padding-top: 1em;
   padding-bottom: 1em;
-  // border: 1px dashed black;
+  border-top: 1.5px $white solid;
   z-index: 10;
   -webkit-box-shadow: 5px 5px 0 0 rgba(0,0,0,0.9);
   -moz-box-shadow: 5px 5px 0 0 rgba(0,0,0,0.9);
   box-shadow: 5px 5px 0 0 rgba(0,0,0,0.9);
 }
+
+.with-button {
+  @include span-columns(10);
+  @include fill-parent;
+}
+
 .possum-logo {
   @include span-columns(1.5);
   background-color: $rust;
@@ -120,6 +127,10 @@ p {
   @include pad(.15em);
   color: $almost-black;
 }
+
+.shorter {
+  @include span-columns(8);
+}
 /*------------------------------------*\
 #CONTAINERS
 \*------------------------------------*/
@@ -144,7 +155,7 @@ p {
   -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
-  border-top: 1.5px $grey-white solid;
+  border-top: 1.5px $white solid;
   border-left: 0.75px $grey-white solid;
   border-right: 0.5px black solid;
 }
@@ -236,6 +247,41 @@ p {
   border-bottom: 2px solid $sky-blue;
   -webkit-box-shadow: inset 0 -2px $sky-blue;
   box-shadow: inset 0 -2px $sky-blue;
+}
+
+.logout-button {
+  position: relative;
+  top: 68px;
+  @include pad(.5em);
+  padding-left: 1em;
+  padding-right: 1em;
+  font-family: $display;
+  font-size: 24pt;
+  background-color: $khaki;
+  line-height: 1em;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border: 0;
+  border-bottom: 3px solid $khaki-shadow;
+  border-radius: 0.25em;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -3px $khaki-shadow;
+  box-shadow: inset 0 -3px $khaki-shadow;
+}
+
+.logout-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.logout-button:hover {
+  background: $khaki-shadow;
+  transition: 0.15s;
+  color: $almost-black;
+  border-bottom: 3px solid $khaki;
+  -webkit-box-shadow: inset 0 -3px $khaki;
+  box-shadow: inset 0 -3px $khaki;
 }
 /*------------------------------------*\
 #CHECKBOXES
