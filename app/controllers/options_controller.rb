@@ -52,5 +52,3 @@ class OptionsController < ApplicationController
   end
 
 end
-
-end
