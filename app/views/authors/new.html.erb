@@ -7,13 +7,18 @@
 
 <div class="main-content-container">
 
-  <div class="login-inputs">
 
     <div class="tab-container login-container selected block">
 
 
-      <%= render :template => 'sessions/new' %>
+      <%= form_tag :action => :create, :controller=> :sessions do %>
+      <div class= "session">
 
+        <%= text_field_tag :email, nil, class: "input-field login-email-field", type: "email", required: "required", placeholder: "email" %>
+        <%= password_field_tag :password, nil, placeholder: "password", class: "input-field login-password-field", required: "required" %>
+        <%= submit_tag nil, :class => "login-button" %>
+        <% end %>
+      </div>
     </div>
 
     <div></div>
@@ -22,9 +27,6 @@
 
       <%= render 'form' %>
 
-    </div>
 
   </div>
-  <div class="footer"></div>
-
 </div>
