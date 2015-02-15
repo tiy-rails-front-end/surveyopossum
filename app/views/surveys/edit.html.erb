@@ -3,20 +3,17 @@
     <%= image_tag 'possum-logo-khaki.jpg', width: '100' %>
   </span>
   <h1 class="heading-text shorter">SurveyPossum Form Builder</h1>
+  <p class= "edit">Editing Survey</p>
+  <span class "show-button">  <%= link_to 'Show', @survey %> </span>
+  <span class "back">   <%= link_to 'Back', surveys_path %> </span>
+  <%= button_to "Delete", {:controller => :surveys,
+    :action => 'destroy', :id => (params[:id]) }, :method => :delete %>
+  </div>
 
-</div>
+  <%= render 'form' %>
 
-
-<h1>Editing Survey</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @survey %> |
-<%= link_to 'Back', surveys_path %>
-<%= button_to "Delete", {:controller => :surveys,
-  :action => 'destroy', :id => (params[:id]) }, :method => :delete %>
-
-<script>
+  <script>
+  
   var selectArr = $('.type-select').toArray();
 
   selectArr.forEach(function (item) {
@@ -24,8 +21,8 @@
       $(item).next().toggle();
     }
   })
-</script>
+  </script>
 
-<script type="text/html" class="filler" hidden>
-  <div class="filler-actual"></div>
-</script>
+  <script type="text/html" class="filler" hidden>
+    <div class="filler-actual"></div>
+  </script>
