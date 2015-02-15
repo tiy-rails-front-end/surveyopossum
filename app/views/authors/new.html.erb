@@ -1,32 +1,29 @@
 <div class="heading-container">
+
   <span class="possum-logo">
     <%= image_tag 'possum-logo-khaki.jpg', width: '100' %>
   </span>
+
   <h1 class="heading-text">SurveyPossum Form Builder</h1>
+
 </div>
 
 <div class="main-content-container">
 
+  <div class="tab-container login-container selected block">
+    <%= form_tag :action => :create, :controller=> :sessions do %>
+    <%= text_field_tag :email, nil, class: "input-field login-email-field", type: "email", required: "required", placeholder: "email" %>
+    <%= password_field_tag :password, nil, placeholder: "password", class: "input-field login-password-field", required: "required" %>
+    <%= submit_tag nil, :class => "login-button" %>
+    <% end %>
 
-    <div class="tab-container login-container selected block">
+  </div>
 
+  <div></div>
 
-      <%= form_tag :action => :create, :controller=> :sessions do %>
-      <div class= "session">
+  <div class="tab-container signup-container block">
 
-        <%= text_field_tag :email, nil, class: "input-field login-email-field", type: "email", required: "required", placeholder: "email" %>
-        <%= password_field_tag :password, nil, placeholder: "password", class: "input-field login-password-field", required: "required" %>
-        <%= submit_tag nil, :class => "login-button" %>
-        <% end %>
-      </div>
-    </div>
-
-    <div></div>
-
-    <div class="tab-container signup-container block">
-
-      <%= render 'form' %>
-
+    <%= render 'form' %>
 
   </div>
 </div>
