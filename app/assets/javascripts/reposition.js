@@ -9,7 +9,7 @@ $(function() {
   reorderButton.mousedown(reposition);
 
   function reposition(e) {
-    var elemPosition = $(this).closest('.question-container').position();
+    var elemPosition = $(this).closest('.question-container').offset();
     var elemWidth = $(this).closest('.question-container').width();
     var elemHeight = $(this).closest('.question-container').height();
     var element = $(this).closest('.question-container').replaceWith($('.filler').html());
@@ -31,7 +31,7 @@ $(function() {
       width: elemWidth,
       top: e.pageY - shiftY,
       left: e.pageX - shiftX,
-      position: 'absolute'
+      position: 'absolute',
     })
 
     $(document).on('selectstart dragstart', cancelTextSelection)
