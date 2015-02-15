@@ -378,6 +378,7 @@ a:hover {
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
 }
 
+
 .list-heading {
   font-size: 30pt;
   color: $almost-black;
@@ -548,11 +549,13 @@ a:hover {
 }
 .actual {
   margin: 1em;
+  border-radius: .5em;
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
   color: black;
   font-family: $body;
   background-color: $rust-shadow;
   border: 3px dashed $almost-black;
-  @include pad();
+  @include pad(.5em);
 }
 .filler-actual {
   margin: 1em;
@@ -564,6 +567,267 @@ a:hover {
 }
 textarea {
   @include pad(.2em);
+}
+
+#survey_title {
+  padding: 1em;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border-radius: .25em;
+  padding: 10px;
+  border: none;
+  font-weight: $bold;
+  border-bottom: solid 2px #333640;
+  font-family: "Source Sans", sans-serif;
+  font-size: 12px;
+  border-radius: 0.5em;
+  color: #605f64;
+  transition: border 0.3s;
+}
+
+#survey_description {
+  padding: 1em;
+  border-radius: .25em;
+  font-style: $italic;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #333640;
+  font-family: $body;
+  font-size: 12px;
+  border-radius: 0.5em;
+  color: #605f64;
+  transition: border 0.3s;
+}
+
+#survey_questions_attributes_0_question_text {
+  padding: 1em;
+  border-radius: .25em;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #333640;
+  font-family: $body;
+  font-size: 12px;
+  border-radius: 0.5em;
+  color: #605f64;
+  transition: border 0.3s;
+}
+
+#survey_questions_attributes_1_question_text {
+  padding: 1em;
+  border-radius: .25em;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #333640;
+  font-family: $body;
+  font-size: 12px;
+  border-radius: 0.5em;
+  color: #605f64;
+  transition: border 0.3s;
+}
+
+#survey_questions_attributes_0_question_type {
+  border-radius: .25em;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #333640;
+  font-family: $body;
+  font-size: 12pt;
+  border-radius: 0.5em;
+  color: #605f64;
+  transition: border 0.3s;
+}
+
+#survey_questions_attributes_1_question_type {
+  border-radius: .25em;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #333640;
+  font-family: $body;
+  font-size: 12pt;
+  border-radius: 0.5em;
+  color: #605f64;
+  transition: border 0.3s;
+}
+
+.required-checkbox {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+.required-checkbox div {
+  background: #2fca6c;
+  position: relative;
+  top: -30px;
+}
+.required-checkbox label {
+  display: block;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  z-index: 1;
+  left: 8px;
+  background: #fffffd;
+}
+.required-checkbox label:before {
+  color: #ccc;
+  content: '|||';
+  font-size: 15px;
+  letter-spacing: 1px;
+  position: absolute;
+  left: 7px;
+  top: 11px;
+}
+.required-checkbox input[type=checkbox]:checked ~ div {
+  background: #e9513a;
+}
+.required-checkbox input[type=checkbox]:checked ~ label {
+  left: 75px;
+}
+
+.delete-question {
+    position: relative;
+    vertical-align: top;
+    width: 10%;
+    height: 30px;
+    font-size: 22px;
+    color: black;
+    text-align: center;
+    font-family: $display;
+    line-height: 1em;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: $sea-foam;
+    border: 0;
+    border-bottom: 2px solid $sea-foam-shadow;
+    border-radius: 0.25em;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px $sea-foam-shadow;
+    box-shadow: inset 0 -2px $sea-foam-shadow;
+  }
+  .delete-button:active {
+    top: 1px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .delete-button:hover {
+    background: $sea-foam-shadow;
+    transition: 0.15s;
+    border-bottom: 2px solid $sea-foam;
+    -webkit-box-shadow: inset 0 -2px $sea-foam;
+    box-shadow: inset 0 -2px $sea-foam;
+}
+.reorder-question {
+    position: relative;
+    vertical-align: top;
+    width: 5%;
+    height: 30px;
+    font-size: 22px;
+    color: black;
+    text-align: center;
+    font-family: $display;
+    line-height: 1em;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: $khaki;
+    border: 0;
+    border-bottom: 2px solid $khaki-shadow;
+    border-radius: 0.25em;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px $khaki-shadow;
+    box-shadow: inset 0 -2px $khaki-shadow;
+  }
+  .reorder-question:active {
+    top: 1px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .reorder-question:hover {
+    background: $khaki-shadow;
+    transition: 0.15s;
+    border-bottom: 2px solid $khaki;
+    -webkit-box-shadow: inset 0 -2px $khaki;
+    box-shadow: inset 0 -2px $khaki;
+}
+
+.add-question-button {
+    position: relative;
+    vertical-align: top;
+    width: 5%;
+    height: 30px;
+    font-size: 22px;
+    color: black;
+    text-align: center;
+    font-family: $display;
+    line-height: 1em;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: $sky-blue;
+    border: 0;
+    border-bottom: 2px solid $sky-blue-shadow;
+    border-radius: 0.25em;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px $sky-blue-shadow;
+    box-shadow: inset 0 -2px $sky-blue-shadow;
+  }
+  .add-question-button:active {
+    top: 1px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .add-question-button:hover {
+    background: $sky-blue-shadow;
+    transition: 0.15s;
+    border-bottom: 2px solid $sky-blue;
+    -webkit-box-shadow: inset 0 -2px $sky-blue;
+    box-shadow: inset 0 -2px $sky-blue;
+}
+
+.create-survey-button {
+  position: relative;
+  float: left;
+  vertical-align: top;
+  width: 12%;
+  height: 30px;
+  font-size: 22px;
+  color: black;
+  text-align: center;
+  font-family: $display;
+  line-height: 1em;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: $sea-foam;
+  border: 0;
+  border-bottom: 2px solid $sea-foam-shadow;
+  border-radius: 0.25em;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px $sea-foam-shadow;
+  box-shadow: inset 0 -2px $sea-foam-shadow;
+}
+.create-survey-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.create-survey-button:hover {
+  background: $sea-foam-shadow;
+  transition: 0.15s;
+  border-bottom: 2px solid $sea-foam;
+  -webkit-box-shadow: inset 0 -2px $sea-foam;
+  box-shadow: inset 0 -2px $sea-foam;
+}
+.question-p {
+  font-family: $display;
+  font-size: 14pt;
+  @include pad();
 }
 /*------------------------------------*\
 #SESSIONS
