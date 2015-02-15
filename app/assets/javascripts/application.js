@@ -24,7 +24,6 @@ $(function() {
     newQuestion.removeClass('blueprint'); // removes blueprint class from clone to maintain integrity of blueprint
     newQuestion.addClass('actual'); // adds actual class to clone to identify it as an actual question
     newQuestion.appendTo('.question-list'); // inserts new question node before the submit button, aka last thing in form
-    newQuestion.toggle(); // removes hidden attr from newly inserted node
     repairQuestionIndeces(); // rewrites indeces for all actual questions
     // addButton.insertBefore('.actions'); // moves the add button to the appropriate position
 

@@ -21,7 +21,7 @@
     <%= f.hidden_field :author_id, :value => session[:author_id] %>
   </div>
 
-  <li class="question-container blueprint" hidden>
+  <li class="question-container actual blueprint">
 
     <button class="delete-question">X delete</button>
 
@@ -31,6 +31,7 @@
 
     <p class="question-p">
       <%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal", required: "required"%>
+      <%= ff.check_box :is_required %> Question required?
       <%= ff.select :question_type, ["Question Type", "Multiple Choice",
          "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
     </p>
