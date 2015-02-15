@@ -440,11 +440,6 @@ a:hover {
   color: $grey-white;
 }
 
-.field {
-  margin: 1em;
-  color: black;
-}
-
 .add-question-button {
   margin: 1em;
   font-family: $display;
@@ -536,10 +531,40 @@ a:hover {
 \*------------------------------------*/
 
 /*------------------------------------*\
-#SURVEYS EDIT PAGE
+#SURVEYS NEW / EDIT/ FORM PAGEs
 \*------------------------------------*/
+.edit {
+  font-color: $almost-black;
+  font-size: 24pt;
+  font-family: $display;
+  text-shadow: 1px 1px 2px rgba(249, 249, 249, 1);
 
+}
 
+.field {
+  margin: 1em;
+  color: black;
+  font-family: $body;
+}
+.actual {
+  margin: 1em;
+  color: black;
+  font-family: $body;
+  background-color: $rust-shadow;
+  border: 3px dashed $almost-black;
+  @include pad();
+}
+.filler-actual {
+  margin: 1em;
+  color: black;
+  font-family: $body;
+  background-color: $grey-white;
+  opacity: .6;
+  @include pad(1.5em);
+}
+textarea {
+  @include pad(.2em);
+}
 /*------------------------------------*\
 #SESSIONS
 \*------------------------------------*/
