@@ -58,33 +58,32 @@ $(function() {
 
   deleteButton.click(function(e) {
     e.preventDefault();
-    var current = $(this); // identifying correct delete button and storing it in var current
+    var current = $(this);
     var parent = current.closest('.actual');
     if (parent.prev('.actual').length || parent.next('.actual').length) {
-      current.closest($('.actual')).remove(); // removing it's parent container
-      repairQuestionIndeces(); // remapping question indeces
+      current.closest($('.actual')).remove();
+      repairQuestionIndeces();
     }
   })
 
-  //controls dynamic growth of multi-choice answer fields
   function grow() {
-    var item = $(this); // identifying desired text input
+    var item = $(this);
 
-    if (item.val() !== '' && item.next().val() === undefined) { // checks to make sure there is input && that there isnt already a next sibling
-      var newInput = item.clone(true); // deep clones current input
-      newInput.insertAfter(item); // inserts clone behind this input
-      newInput.val(''); // removes copied val of clone daddy
+    if (item.val() !== '' && item.next().val() === undefined) {
+      var newInput = item.clone(true);
+      newInput.insertAfter(item);
+      newInput.val('');
       updateOptionIndeces(item.closest('.question-p'));
     }
 
-    if (item.val() === '' && item.next().val() === '') { // checks if current && next input are empty
-      item.next().remove(); // if so, it removes the next input
+    if (item.val() === '' && item.next().val() === '') {
+      item.next().remove();
       updateOptionIndeces(item.closest('.question-p'));
     }
 
     item.on('blur', function() {
-      if (item.val() === '' && item.next().val() !== undefined) { // if blurred input is empty and not the last in the list
-        item.remove(); // then remove it
+      if (item.val() === '' && item.next().val() !== undefined) {
+        item.remove();
         updateOptionIndeces(item.closest('.question-p'));
       }
     })

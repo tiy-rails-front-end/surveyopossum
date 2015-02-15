@@ -89,26 +89,29 @@ $(function() {
     }
   }
 
-  // rewrites all question indeces in the current form, brute force FTW
   function repairQuestionIndeces() {
-    var questArr = $('.actual').toArray(); // creates an array of all actual question containers
+    var questArr = $('.actual').toArray();
 
-    for (var i = 0; i < questArr.length; ++i) { //for each actual question container...
-      adjustAttrIndex($('.question-literal', questArr[i]), 'name', i) // change its question name
-      adjustAttrIndex($('.type-select', questArr[i]), 'name', i) // change its select name
+    for (var i = 0; i < questArr.length; ++i) {
+      adjustAttrIndex($('.question-literal', questArr[i]), 'name', i)
+      adjustAttrIndex($('.question-literal', questArr[i]), 'id', i)
+      adjustAttrIndex($('.type-select', questArr[i]), 'name', i)
+      adjustAttrIndex($('.type-select', questArr[i]), 'id', i)
+      adjustAttrIndex($('.required-checkbox', questArr[i]), 'name', i)
+      adjustAttrIndex($('.required-checkbox', questArr[i]), 'id', i)
 
       var optionArr = $('.mc-option', $(questArr[i])).toArray();
 
       for (var x = 0; x < optionArr.length; ++x) {
         var oldName = $(optionArr[x]).attr('name');
         $(optionArr[x]).attr('name', oldName.replace(/\d+/, i));
+        $(optionArr[x]).attr('id', oldName.replace(/\d+/, i));
       }
     }
   }
 
-  //finds and replaces a number within an specified attribute within a specified jquery node object
   function adjustAttrIndex(targetNode, attribute, index) {
-    var currentAttr = targetNode.attr(attribute); // identifies attribute with which we are concerned
-    targetNode.attr(attribute, currentAttr.replace( /\d+/g, index)); // changes it using super sweet regex
+    var currentAttr = targetNode.attr(attribute);
+    targetNode.attr(attribute, currentAttr.replace( /\d+/g, index));
   }
 })
