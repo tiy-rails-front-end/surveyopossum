@@ -1,56 +1,61 @@
-<%= form_for(@survey) do |f| %>
-  <% if @survey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
 
-      <ul>
-      <% @survey.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="survey-form-container">
 
-  <div class="field">
-    <%= f.text_field :title, placeholder: "survey title", required: "required"%>
-  </div>
-  <div class="field">
-    <%= f.text_area :description, placeholder: "describe your survey", required: "required" %>
-  </div>
-  <div class="field" hidden>
-    <%= f.hidden_field :author_id, :value => session[:author_id] %>
-  </div>
+  <%= form_for(@survey) do |f| %>
+    <% if @survey.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
 
-    <%= f.fields_for :questions do |ff| %>
-
-  <div class="question-container actual">
-
-    <button class="delete-question">X delete</button>
-
-    <button class="reorder-question">/\\/</button>
-
-
-    <div class="question-p">
-      <%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal", required: "required"%>
-      <%= ff.check_box :is_required %> Question required?
-      <%= ff.select :question_type, ["Question Type", "Multiple Choice",
-         "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
-      <div class="mc-option-box" hidden>
-        <%= ff.fields_for :options do |fff| %>
-        <%= fff.text_field :name, class: "mc-option root"%>
+        <ul>
+        <% @survey.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
+        </ul>
       </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.text_field :title, placeholder: "survey title", required: "required"%>
+    </div>
+    <div class="field">
+      <%= f.text_area :description, placeholder: "describe your survey", required: "required" %>
+    </div>
+    <div class="field" hidden>
+      <%= f.hidden_field :author_id, :value => session[:author_id] %>
     </div>
 
-  </div>
+      <%= f.fields_for :questions do |ff| %>
 
+    <div class="question-container actual">
+
+      <button class="delete-question">X delete</button>
+
+      <button class="reorder-question">/\\/</button>
+
+
+      <div class="question-p">
+        <%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal", required: "required"%>
+        <%= ff.check_box :is_required %> Question required?
+        <%= ff.select :question_type, ["Question Type", "Multiple Choice",
+           "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
+        <div class="mc-option-box" hidden>
+          <%= ff.fields_for :options do |fff| %>
+          <%= fff.text_field :name, class: "mc-option root"%>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+
+    <% end %>
+
+    <button class="add-question-button">Add Question</button>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 
   <% end %>
 
-  <button class="add-question-button">Add Question</button>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-<% end %>
+</div>

@@ -175,7 +175,7 @@ p {
 }
 .signup-container {
   padding: 2em 1em;
-  // @include shift(.2);
+
   @include span-columns(6);
   border-radius: 0.25em;
   background-color: $rust;
@@ -425,6 +425,48 @@ a {
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.6);
   }
 
+/*------------------------------------*\
+#NEW SURVEYS PAGE
+\*------------------------------------*/
+
+.survey-form-container {
+  @include shift(.5);
+  @include pad();
+  @include span-columns(11);
+  position: relative;
+  top: 10em;
+  background-color: $rust;
+}
+
+.error-explanation {
+  font-family: $display;
+  color: $grey-white;
+}
+
+.field {
+  margin: 1em;
+  color: black;
+}
+
+.add-question-button {
+  margin: 1em;
+  font-family: $display;
+}
+
+.delete-question {
+  margin: 1em;
+  font-family: $display;
+}
+
+.reorder-question {
+  margin: 1em;
+  font-family: $display;
+}
+
+.actions {
+  margin: 1em;
+  font-family: $display;
+}
 /*------------------------------------*\
 #CHECKBOXES
 \*------------------------------------*/
