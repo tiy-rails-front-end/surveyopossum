@@ -12,7 +12,8 @@ $(function() {
     var elemPosition = $(this).closest('.question-container').offset();
     var elemWidth = $(this).closest('.question-container').width();
     var elemHeight = $(this).closest('.question-container').height();
-    var element = $(this).closest('.question-container').replaceWith($('.filler').html());
+    var element = $(this).closest('.question-container').clone(true);
+    $(this).closest('.question-container').replaceWith($('.filler').html());
 
     var shiftX = e.pageX - elemPosition.left;
     var shiftY = e.pageY - elemPosition.top;
