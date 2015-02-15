@@ -20,13 +20,13 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.questions.build
-    @survey.questions.first.options.build
+    @survey.questions.each { |q|  q.options.build }
   end
 
   # GET /surveys/1/edit
   def edit
     @survey.questions.build
-    @survey.questions.first.options.build
+    @survey.questions.each { |q|  q.options.build }
     if @survey.submissions.count > 0
       redirect_to surveys_path, notice: 'You can not edit the survey once responses have been received'
     end
