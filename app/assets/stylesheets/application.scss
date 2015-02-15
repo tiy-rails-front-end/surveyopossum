@@ -550,7 +550,6 @@ a:hover {
   @include shift(1);
   @include pad();
   margin-top: 2em;
-  padding-top: 2em;
   background-color: $light-sky-blue;
   border-top: 1.5px $grey-white groove;
   border-left: 0.5px $grey-white groove;
@@ -595,4 +594,78 @@ a:hover {
   border-right-color: #595d5e;
   border-width: 18px;
   margin-top: -18px;
+}
+.login-button-sessions {
+  position: relative;
+  vertical-align: top;
+  width: 15%;
+  height: 30px;
+  margin-top: 3em;
+  margin-left: $button-margin1;
+  padding-bottom: 0.25em;
+  font-size: 22px;
+  line-height: 1em;
+  color: $grey-white;
+  text-align: center;
+  font-family: $display;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: $sky-blue;
+  border: 0;
+  border-bottom: 2px solid $sky-blue-shadow;
+  border-radius: 25em;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px $sky-blue-shadow;
+  box-shadow: inset 0 -2px $sky-blue-shadow;
+}
+.login-button-sessions:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.login-button-sessions:hover {
+  background: $sky-blue-shadow;
+  transition: 0.15s;
+  border-bottom: 2px solid $sky-blue;
+  -webkit-box-shadow: inset 0 -2px $sky-blue;
+  box-shadow: inset 0 -2px $sky-blue;
+}
+
+.possum {
+  @include span-columns(1.5);
+  background-color: $rust;
+  margin-left: 1.5em;
+  @include pad(1.25em);
+  padding-right: 7.7em;
+  border-radius: 5em;
+  position: relative;
+  top: 50%;
+  transform: translateY(-1%);
+  background-color: $rust;
+  border-top: 2px white solid;
+  -webkit-box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+  box-shadow: -4px 2px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.input-field-sessions {
+  padding: 10px;
+  margin-top: 5em;
+  border: none;
+  border-bottom: solid 2px $dark-grey;
+  font-family: $body;
+  font-size: 12px;
+  border-radius: 0.5em;
+  color: $grey;
+  transition: border 0.3s;
+  margin: input-margin1;
+}
+
+.input-field-sesssions:focus,
+.input-field-sessions.focus {
+  border-top: 1.5px $grey-white solid;
+  border-left: 1px $grey-white solid;
+  border-right: 0.5px black solid;
+  border-bottom: solid 2px $dark-grey;
 }
