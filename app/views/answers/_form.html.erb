@@ -12,19 +12,19 @@
   <% end %>
 
 <div class="field">
-  <div class= "Short Form">
+  <div <%= "#{"hidden" if question.question_type != "Short Form"}" %>>
     <%= render 'answers/short_form', :f=> f %>
   </div>
 
-  <div class= "Long Form">
+  <div <%= "#{"hidden" if question.question_type != "Long Form"}" %>>
     <%= render 'answers/long_form', :f=> f %>
   </div>
 
-  <div class= "Multiple Choice">
+  <div <%= "#{"hidden" if question.question_type != "Multiple Choice"}" %>>
     <%= render 'answers/multiple_choice', {:f=> f, :question => question} %>
   </div>
 
-  <div class= "Yes or No">
+  <div <%= "#{"hidden" if question.question_type != "Yes/No"}" %>>
     <%= render 'answers/yes_no', :f=> f %>
   </div>
 
