@@ -161,9 +161,9 @@ p {
 
 .login-container {
   border-radius: 3em;
-  @include span-columns(5);
+  @include span-columns(4.8);
   padding: 2em 1em 2em 1.25em;
-  @include shift(.5);
+  @include shift(.25);
   margin-bottom: 1em;
   background-color: $khaki;
   -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.75);
@@ -175,8 +175,7 @@ p {
 }
 .signup-container {
   padding: 2em 1em;
-
-  @include span-columns(6);
+  @include span-columns(6.8);
   border-radius: 0.25em;
   background-color: $rust;
   border-top: 1.5px $grey-white solid;
