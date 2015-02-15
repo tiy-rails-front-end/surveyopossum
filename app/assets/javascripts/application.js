@@ -97,6 +97,8 @@ $(function() {
       var current = $(optionArr[i]);
       var newName = current.attr('name').replace(/\d+(?=\]\[name)/, i);
       current.attr('name', newName);
+      var newID = current.attr('id').replace(/\d+(?=\]\[name)/, i);
+      current.attr('id', newID);
     }
 
   }
@@ -106,13 +108,18 @@ $(function() {
 
     for (var i = 0; i < questArr.length; ++i) {
       adjustAttrIndex($('.question-literal', questArr[i]), 'name', i)
+      adjustAttrIndex($('.question-literal', questArr[i]), 'id', i)
       adjustAttrIndex($('.type-select', questArr[i]), 'name', i)
+      adjustAttrIndex($('.type-select', questArr[i]), 'id', i)
+      adjustAttrIndex($('.required-checkbox', questArr[i]), 'name', i)
+      adjustAttrIndex($('.required-checkbox', questArr[i]), 'id', i)
 
       var optionArr = $('.mc-option', $(questArr[i])).toArray();
 
       for (var x = 0; x < optionArr.length; ++x) {
         var oldName = $(optionArr[x]).attr('name');
         $(optionArr[x]).attr('name', oldName.replace(/\d+/, i));
+        $(optionArr[x]).attr('id', oldName.replace(/\d+/, i));
       }
     }
   }
