@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <body class="white">
   <div class="heading-container with-button">
 
@@ -6,7 +7,6 @@
     </span>
 
     <h1 class="heading-text shorter smaller">SurveyPossum Form Builder</h1>
-    <!-- need to add a 'logout' button that takes the user back to 'sessions' here' -->
     <span class="logout-button">Logout</span>
       <div></div>
     <span class="create-new-button"><%= link_to 'New Survey', new_survey_path %></span>
@@ -29,8 +29,9 @@
         <li class ="block4">  <td><%= link_to 'See Answers', submissions_path(:survey_id => survey.id) %></td> </li>
         <li class ="block4"> <td><%= link_to 'Edit', edit_survey_path(survey) %></td> </li>
         <li class ="block4">  <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td> </li>
-        </tr>
+        <br>
+        <%= link_to 'New Survey', new_survey_path %>
+      </div>
     </div>
-      <% end %>
 
 </body>
