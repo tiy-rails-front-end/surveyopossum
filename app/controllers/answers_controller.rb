@@ -18,15 +18,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
-    survey=Question.find(@answer.question_id).survey
-    survey_id=Question.find(@answer.question_id).survey.id
     if @answer.save
-      submission=Submission.new
-      survey_id=Question.find(@answer.question_id).survey.id
-      submission.survey_id= survey_id
-      submission.save
-      @answer.submission_id= submission.id
-      @answer.save
       redirect_to answers_path, notice: 'Answer was successfully created.'
     else
       redirect_to :back, notice: 'You must answer required questions'

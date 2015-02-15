@@ -14,6 +14,7 @@ class SurveysController < ApplicationController
   def show
     @surveys = Survey.all
     @answer = Answer.new
+    @survey.submissions.build
   end
 
   # GET /surveys/new
@@ -82,6 +83,6 @@ class SurveysController < ApplicationController
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id, :survey_id,
       questions_attributes: [:id, :question_text, :question_type, :is_required, :_destroy,
-        options_attributes: [:id, :name]])
+        options_attributes: [:id, :name]], submissions_attributes: [:id, :survey_id, answers_attributes: [:id, :answer_text, :submission_id, :question_id]])
     end
 end

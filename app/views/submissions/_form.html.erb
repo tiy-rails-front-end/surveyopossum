@@ -1,18 +1,11 @@
-<%= form_for(@submission) do |f| %>
-<% if @submission.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
-
-  <ul>
-    <% @submission.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-<%= f.fields_for :answers do |ff| %>
 <p>
-  <%= ff.label :answer_text, "Answer" %><br>
-  <%= ff.text_area :answer_text %>
+  <%= f.fields_for :submissions do |ff| %>
+
+  <p>
+  <% @survey.questions.each do |question| %>
+    <strong>Question:</strong> <%= question.question_text %>
+    <%= render 'answers/form', :ff => ff, :question => question%>
+  <% end %>
+  </p>
+ <% end %>
 </p>
-<% end %>
