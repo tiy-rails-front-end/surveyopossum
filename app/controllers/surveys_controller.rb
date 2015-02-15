@@ -34,7 +34,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
-        format.html { redirect_to surveys_path, notice: 'Survey was successfully created.' }
+        format.html { redirect_to surveys_path, notice: "Survey was successfully created. The link to your survey is https://tiy-rails-front-end.herokuapp.com/surveys/#{@survey.id}" }
         format.json { render :show, status: :created, location: @survey }
       else
         format.html { render :new }
