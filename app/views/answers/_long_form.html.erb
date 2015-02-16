@@ -1,1 +1,5 @@
-<%= ff.text_area :answer_text, class: "Long Form" %>
+<% if question.is_required %>
+  <%= ff.text_area :answer_text, required: "required", class: "Long Form" %>
+<% else %>
+  <%= ff.text_area :answer_text, class: "Long Form" %>
+<% end %>

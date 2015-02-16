@@ -1,4 +1,11 @@
-<%= ff.radio_button :answer_text, "yes",
+<% if question.is_required %>
+  <%= ff.radio_button :answer_text, "Yes", required: "required",
+    class: "Yes No" %><span class= "Yes No"> Yes </span>
+  <%= ff.radio_button :answer_text, "No", required: "required",
+    class: "Yes No" %><span class= "Yes No"> No </span>
+<% else %>
+  <%= ff.radio_button :answer_text, "Yes",
   class: "Yes No" %><span class= "Yes No"> Yes </span>
-<%= ff.radio_button :answer_text, "no",
-  class: "Yes No" %><span class= "Yes No"> Yes </span>
+  <%= ff.radio_button :answer_text, "No",
+  class: "Yes No" %><span class= "Yes No"> No </span>
+<% end %>

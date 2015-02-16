@@ -1,1 +1,5 @@
-<%= ff.text_field :answer_text, class: "Short Form" %>
+<% if question.is_required %>
+  <%= ff.text_field :answer_text, required: "required", class: "Short Form" %>
+<% else %>
+  <%= ff.text_field :answer_text, class: "Short Form" %>
+<% end %>

@@ -1,4 +1,11 @@
-<% question.options.each do |o| %>
+<% if question.is_required %>
+  <% question.options.each do |o| %>
+      <%= ff.radio_button :answer_text, o.name, required: "required", class: "Multiple Choice" %>
+      <%= o.name %>
+  <% end %>
+<% else %>
+  <% question.options.each do |o| %>
     <%= ff.radio_button :answer_text, o.name, class: "Multiple Choice" %>
     <%= o.name %>
+  <% end %>
 <% end %>
