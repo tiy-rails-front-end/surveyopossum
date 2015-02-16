@@ -1,1 +1,1 @@
-<%= ff.text_area :answer_text, required: "#{"required" if @submission.answers.each {|a| a.errors}}", class: "#{question.question_type}" %>
+<%= ff.text_area :answer_text, required: "#{"required" if @submission.answers.each {|a| a.errors}}", class: "long form" %>

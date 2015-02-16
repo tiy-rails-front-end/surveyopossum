@@ -1,4 +1,4 @@
 <% question.options.each do |o| %>
-    <%= ff.radio_button :answer_text, o.name, required: "#{"required" if @submission.answers.each {|a| a.errors}}", class: "#{question.question_type}" %>
+    <%= ff.radio_button :answer_text, o.name, required: "#{"required" if @submission.answers.each {|a| a.errors}}", class: "multiple choice" %>
     <%= o.name %>
 <% end %>

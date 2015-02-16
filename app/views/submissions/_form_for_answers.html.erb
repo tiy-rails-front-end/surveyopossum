@@ -3,7 +3,23 @@
   <% f.object.build_answers %>
   <strong>Questions:</strong>
   <% survey.questions.each do |question| %>
+    <% if question.question_type == "Multiple choice" %>
+      <div class= "Multiple Choice"
+        <li><%= question.question_text %></li>
+      </div>
+    <% elsif question.question_type == "Long Form" %>
+      <div class= "Long Form"
+        <li><%= question.question_text %></li>
+      </div>
+    <% elsif question.question_type == "Short Form" %>
+      <div class= "Short Form"
+      <li><%= question.question_text %></li>
+      </div>
+  <% elsif question.question_type == "Yes/No" %>
+    <div class= "Yes/No"
     <li><%= question.question_text %></li>
+    </div>
+  <% end %>
     <%= f.fields_for :answers do |ff| %>
       <%= render 'answers/form', {:question => question, :ff => ff} %>
       <%= ff.hidden_field :question_id, :value=> question.id%>
