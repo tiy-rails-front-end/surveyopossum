@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+=======
+
+
+
+<%= form_for(@answer) do |f| %>
+  <% if @answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this survey from being saved:</h2>
+
+      <ul>
+        <% @answer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+>>>>>>> styles2
 <div class="field">
     <%= render 'answers/short_form', :ff => ff, :question => question  %>
 

@@ -1,4 +1,15 @@
-<h1>Submissions</h1>
+<p class="shift"> Submissions#new  Find me in app/views/submissions/new.html.erb</p>
+
+<div class="heading-container">
+  <span class="possum-logo small-logo">
+    <%= image_tag 'possum-logo-khaki.jpg', width: '100' %>
+  </span>
+  <h1 class="heading-text shorter">SurveyPossum Form Builder</h1>
+  <p class= "edit">New Submissions</p>
+  <span class="nav-button shift">   <%= link_to 'Back', surveys_path %> </span>
+
+  </div>
+
 <% count=1  %>
 <% @submissions.each do |submission| %>
   <h2> Submission <%= count %> </h2>

@@ -34,8 +34,8 @@
 
 
       <div class="question-p">
-        <%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal", required: "required"%>
-        <%= ff.check_box :is_required, class: "required-checkbox" %> Question required?
+        <p class= "answer"><%= ff.text_area :question_text, placeholder: "enter your question here", class: "question-literal", required: "required"%></p>
+        <%= ff.check_box :is_required, class: "required-checkbox flat-checkbox" %> Question required?
         <%= ff.select :question_type, ["Question Type", "Multiple Choice",
            "Long Form", "Short Form", "Yes/No"], {}, {:class => "type-select"} %>
         <div class="mc-option-box" hidden>
