@@ -12,13 +12,7 @@
 
   <<div class="survey-list low">
 
-<<<<<<< HEAD
-<p>
 
-  <%= render 'submissions/form_for_answers', survey: @survey %>
-
-</p>
-=======
     <%= @survey= params[:survey] unless @survey %>
     <p class="title">
       <strong>Title:</strong>
@@ -29,21 +23,9 @@
       <strong>Description:</strong>
       <%= @survey.description %>
     </p>
->>>>>>> styles2
-
-
-    <pclass= "title">
-      <% @survey.questions.each do |question| %>
-      Question: <%= question.question_text %>
-      <p class= "title">
-        <%= render "answers/form", question: question %>
-      <% end %>
-      </p>
-    </p>
 
     <p>
-      <span class="nav-button shift"><%= link_to "Edit", edit_survey_path(@survey) %> </span>
-      <span class="nav-button shift"><%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> </span>
-      <span class="nav-button shift"><%= link_to "View All", surveys_path %></span>
+
+      <%= render 'submissions/form_for_answers', survey: @survey %>
+
     </p>
-</div>
