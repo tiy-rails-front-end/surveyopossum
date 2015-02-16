@@ -11,7 +11,6 @@ class SurveysController < ApplicationController
   def show
     @surveys = Survey.all
     @submission=Submission.new
-    @survey.submissions.build
     @survey.submissions.each { |s|  s.answers.build }
     @answer=Answer.new
   end
