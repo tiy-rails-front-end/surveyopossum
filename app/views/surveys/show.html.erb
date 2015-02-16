@@ -4,7 +4,7 @@
   </span>
   <h1 class="heading-text shorter">SurveyPossum Form Builder</h1>
   <p class= "edit">Preview Survey</p>
-  <span class="nav-button">  <%= link_to 'Show', @survey %> </span>
+  <span class="nav-button">  <%= link_to 'Take Survey', @survey %> </span>
   <span class="nav-button">   <%= link_to 'Back', surveys_path %> </span>
   <span class="nav-button">  <%= link_to "Delete", {:controller => :surveys,
     :action => 'destroy', :id => (params[:id]) }, :method => :delete %> </span>
