@@ -11,7 +11,7 @@ class SubmissionsController < ApplicationController
     if @submission.save
      redirect_to surveys_path, notice: 'Submission was successfully created.'
     else
-      redirect_to back, notice: "An error prevented your submission from being saved"
+      redirect_to :back, notice: "An error prevented your submission from being saved"
     end
   end
 

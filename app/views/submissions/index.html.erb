@@ -1,21 +1,25 @@
-<p class="shift"> Submissions#new  Find me in app/views/submissions/new.html.erb</p>
-
 <div class="heading-container">
   <span class="possum-logo small-logo">
     <%= image_tag 'possum-logo-khaki.jpg', width: '100' %>
   </span>
   <h1 class="heading-text shorter">SurveyPossum Form Builder</h1>
-  <p class= "edit">New Submissions</p>
+  <p class= "edit">See Answers</p>
   <span class="nav-button shift">   <%= link_to 'Back', surveys_path %> </span>
 
   </div>
 
-<% count=1  %>
-<% @submissions.each do |submission| %>
+<div class= "submissions">
+  <% if @submissions.count > 0%>
+  <% count=1  %>
+  <% @submissions.each do |submission| %>
   <h2> Submission <%= count %> </h2>
   <% submission.answers.each do |answer| %>
-    Question: <%= answer.question.question_text %> <br>
-    Answer: <%= answer.answer_text %>
+  Question: <%= answer.question.question_text %> <br>
+  Answer: <%= answer.answer_text %> <br>
   <% end %>
   <% count +=1 %>
-<% end %>
+  <% end %>
+  <% else %>
+  <h2>No survey results have been received.</h2>
+  <% end %>
+</div>

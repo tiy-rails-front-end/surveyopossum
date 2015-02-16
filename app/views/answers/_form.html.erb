@@ -1,9 +1,10 @@
 <div class="field">
-    <%= render 'answers/short_form', :ff => ff, :question => question  %>
+    <%= render 'answers/short_form', {:ff => ff, :question => question}  %>
 
-    <%= render 'answers/long_form', :ff => ff, :question => question %>
+    <%= render 'answers/multiple_choice', {:ff=> ff, :question => question} %>
 
-    <%= render 'answers/multiple_choice', :ff=> ff, :question => question %>
+    <%= render 'answers/long_form', {:ff => ff, :question => question} %>
 
-    <%= render 'answers/yes_no', :ff => ff, :question => question %>
+    <%= render 'answers/yes_no', {:ff => ff, :question => question} %>
+    
 </div>

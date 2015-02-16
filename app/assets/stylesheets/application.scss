@@ -1024,3 +1024,9 @@ p {
   @include shift(.3);
   top: .5em;
 }
+
+.submissions {
+  margin-top: 200px;
+  @include pad();
+  color: white;
+}

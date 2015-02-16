@@ -45,7 +45,7 @@ class AnswersController < ApplicationController
   end
 
   def answer_params
-    params.require(:answer).permit(:answer_text, :question_id, :submission_id, :survey_id)
+    params.require(:answer).permit(:answer_text, :question_id, :submission_id)
   end
 
 end
