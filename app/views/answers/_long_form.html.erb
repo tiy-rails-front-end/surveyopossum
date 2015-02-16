@@ -1,5 +1,1 @@
-  <% if question.question_type != "Long Form" %>
-    <%= ff.hidden_field :answer_text %>
-  <% else %>
-    <%= ff.text_area :answer_text, required: "#{"required" if @submission.answers.each {|a| a.errors}}" %>
-  <% end %>
+<%= ff.text_area :answer_text, required: "#{"required" if @submission.answers.each {|a| a.errors}}", class: "#{question.question_type}" %>

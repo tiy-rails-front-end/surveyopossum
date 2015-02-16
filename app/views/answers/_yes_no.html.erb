@@ -1,6 +1,2 @@
-<% if question.question_type != "Yes/No"%>
-  <%= ff.hidden_field :answer_text %>
-<% else %>
-  <%= ff.radio_button :answer_text, "yes", required: "#{"required" if @submission.answers.each {|a| a.errors}}" %>Yes
-  <%= ff.radio_button :answer_text, "no", required: "#{"required" if @submission.answers.each {|a| a.errors}}" %>No
-<% end %>
+  <%= ff.radio_button :answer_text, "yes", required: "#{"required" if @submission.answers.each {|a| a.errors}}", class: "#{question.question_type}" %>Yes
+  <%= ff.radio_button :answer_text, "no", required: "#{"required" if @submission.answers.each {|a| a.errors}}", class: "#{question.question_type}" %>No

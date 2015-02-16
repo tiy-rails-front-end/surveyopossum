@@ -1,7 +1,1 @@
-<p>
-  <% if question.question_type != "Short Form" %>
-    <%= ff.hidden_field :answer_text %>
-  <% else %>
-    <%= ff.text_field :answer_text, required: "#{"required" if @submission.answers.each {|a| a.errors}}" %>
-  <% end %>
-</p>
+<%= ff.text_field :answer_text, required: "#{"required" if @submission.answers.each {|a| a.errors}}", class: "#{question.question_type}" %>
