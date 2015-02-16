@@ -990,3 +990,32 @@ textarea {
   -webkit-box-shadow: inset 0 -3px $khaki;
   box-shadow: inset 0 -3px $khaki;
 }
+
+/*------------------------------------*\
+#PREVIEW
+\*------------------------------------*/
+
+.low {
+  top: 10em;
+}
+p {
+  font-family: $body;
+  color: black;
+  font-size: 14pt;
+
+}
+
+.title {
+  font-size: 20pt;
+  font-family: $display;
+}
+.answer {
+  font-family: $display;
+  color: black;
+  font-size: 14pt;
+}
+
+.shift {
+  @include shift(.3);
+  top: .5em;
+}

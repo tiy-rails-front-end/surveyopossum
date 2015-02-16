@@ -1,24 +1,41 @@
-<%= @survey= params[:survey] unless @survey %>
-<p>
-  <strong>Title:</strong>
-  <%= @survey.title %>
-</p>
+<div class="heading-container">
+  <span class="possum-logo small-logo">
+    <%= image_tag 'possum-logo-khaki.jpg', width: '100' %>
+  </span>
+  <h1 class="heading-text shorter">SurveyPossum Form Builder</h1>
+  <p class= "edit">Preview Survey</p>
+  <span class="nav-button">  <%= link_to 'Show', @survey %> </span>
+  <span class="nav-button">   <%= link_to 'Back', surveys_path %> </span>
+  <span class="nav-button">  <%= link_to "Delete", {:controller => :surveys,
+    :action => 'destroy', :id => (params[:id]) }, :method => :delete %> </span>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @survey.description %>
-</p>
+  <<div class="survey-list low">
+
+    <%= @survey= params[:survey] unless @survey %>
+    <p class="title">
+      <strong>Title:</strong>
+      <%= @survey.title %>
+    </p>
+
+    <p class="title">
+      <strong>Description:</strong>
+      <%= @survey.description %>
+    </p>
 
 
-<p>
-  <% @survey.questions.each do |question| %>
-  <strong>Question:</strong> <%= question.question_text %>
-    <%= render "answers/form", question: question %>
-  <% end %>
-</p>
+    <pclass= "title">
+      <% @survey.questions.each do |question| %>
+      Question: <%= question.question_text %>
+      <p class= "title">
+        <%= render "answers/form", question: question %>
+      <% end %>
+      </p>
+    </p>
 
-<p>
-  <%= link_to "Edit", edit_survey_path(@survey) %> |
-  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", surveys_path %>
-</p>
+    <p>
+      <span class="nav-button shift"><%= link_to "Edit", edit_survey_path(@survey) %> </span>
+      <span class="nav-button shift"><%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> </span>
+      <span class="nav-button shift"><%= link_to "View All", surveys_path %></span>
+    </p>
+</div>
