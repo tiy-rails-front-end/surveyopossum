@@ -29,3 +29,27 @@
       <%= render 'submissions/form_for_answers', survey: @survey %>
 
     </p>
+
+  <script>
+
+  var fieldArr = $('.field').toArray();
+
+  fieldArr.forEach(function (item) {
+    var current = $(item);
+    if (current.prev().hasClass('Short')) {
+      $('.Yes', current).toggle();
+      $('.Long', current).toggle();
+    } else if (current.prev().hasClass('Long')) {
+      $('.Yes', current).toggle();
+      $('.Short', current).toggle();
+    } else if (current.prev().hasClass('Yes')) {
+      $('.Long', current).toggle();
+      $('.Short', current).toggle();
+    } else {
+      $('.Long', current).toggle();
+      $('.Short', current).toggle();
+      $('.Yes', current).toggle();
+    }
+  })
+
+  </script>
