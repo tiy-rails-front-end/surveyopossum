@@ -82,7 +82,6 @@ $(function() {
         left: 0
       })
       $('.filler-actual').replaceWith(element);
-      $('.reorder-question', element).on('mousedown', reposition);
       $('body').off('mouseup', reorderDone);
       $('body').off('mousemove', reorder);
       $(document).off('selectstart, dragstart', cancelTextSelection);
